@@ -1,5 +1,5 @@
 {
-    "path" : "~/git/GenomicTools.fileHandler/man",
+    "path" : "~/git/GenomicTools.fileHandler/vignettes",
     "sortOrder" : [
         {
             "ascending" : true,
