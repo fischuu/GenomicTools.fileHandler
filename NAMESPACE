@@ -2,11 +2,18 @@ import(data.table)
 
 importFrom("utils", "read.csv", "read.table", "sessionInfo")
 
-export(importFeatureCounts,
+export(exportBed, 
+       exportFA,
+       importBlastTab
+       importBed,
+       importFA, 
+       importFeatureCounts,
+       importFQ,
        importGFF, 
        importGFF3, 
        importGTF, 
        importPED, 
        importSTARLog, 
        importVCF,
+       importXML,
        prereadGTF)
