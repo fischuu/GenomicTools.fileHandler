@@ -1,0 +1,9 @@
+{
+    "path" : "~/git/GenomicTools.fileHandler/man",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}
