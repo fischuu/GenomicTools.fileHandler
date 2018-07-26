@@ -1,24 +1,21 @@
-\name{GenomicTools-package}
-\alias{R/GenomicTools-package}
+\name{GenomicTools.fileHandler-package}
+\alias{R/GenomicTools.fileHandler-package}
 \docType{package}
 
 \title{
-  Loose Collection of Expression and Genotype Analysis Tools, including (e)QTL and MDR.
+  Loose Collection of I/O Functions Needed in Genomic Data Analysis.
 }
 
 \description{
-  GenomicTools is a loose collection of analysis tools for gene expression and genotype data. Currently
-  it provides methods for eQTL, QTL and MDR analysis. It also contains an MDR ensemble classifier. This
-  package is the continuation of the genomic data analysis parts of the GeneticTools package, that is also
-  available on Cran.
+  GenomicTools.fileHandler is a loose collection of I/O Functions Needed in Genomic Data Analysis.
 }
 
 \details{
   \tabular{ll}{
-    Package: \tab GenomicTools\cr
+    Package: \tab GenomicTools.fileHandler\cr
     Type: \tab Package\cr
-    Version: \tab 0.2.7\cr
-    Date: \tab 2017-07-13\cr
+    Version: \tab 0.1\cr
+    Date: \tab 2018-07-26\cr
     License: \tab GPL\cr
     LazyLoad: \tab yes\cr
   }

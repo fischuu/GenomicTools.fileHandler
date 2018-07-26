@@ -1,39 +1,12 @@
-import(gMWT, Rcpp, data.table)
+import(data.table)
 
-importFrom("graphics", "abline", "plot")
 importFrom("utils", "read.csv", "read.table", "sessionInfo")
-importFrom("grDevices", "dev.off", "pdf", "rainbow")
-importFrom("circlize", "circos.clear", "circos.par", "circos.initialize", "circos.trackPlotRegion", "circos.text", "circos.rect", "circos.link","get.cell.meta.data")
-importFrom("graphics", "axis", "boxplot", "layout", "lines", "par", "points", "rect", "text")
-importFrom("stats", "density", "lm", "predict", "smooth.spline")
-importFrom("parallel", "mclapply")
-importFrom("stringr", "str_replace_all")
-importFrom("snpStats", "switch.alleles")
-importFrom("utils", "download.file")
 
-S3method(print,eqtl)
-S3method(plot,eqtl)
-S3method(summary,eqtl)
-
-S3method(print,featureCounts)
-S3method(summary,featureCounts)
-
-S3method(print,mdr)
-S3method(plot,mdr)
-S3method(summary,mdr)
-
-S3method(print,mdrPredict)
-
-S3method(print,PedMap)
-S3method(summary,PedMap)
-
-S3method(plot,qtlRes)
-S3method(print,qtlRes)
-S3method(summary,qtlRes)
-
-S3method(print,vcf)
-
-export(eQTL, QTL, gtfToBed, mdr, mdrEnsemble, recodeData, importFeatureCounts, importSTARLog, importPED, importGFF, importGFF3, importGTF, importVCF, 
-       getKEGGOrganisms, getKEGGPathwayOverview, getKEGGPathway, getKEGGPathwayImage, getRSLocation, prereadGTF)
-
-useDynLib(GenomicTools, .registration = TRUE)
+export(importFeatureCounts,
+       importGFF, 
+       importGFF3, 
+       importGTF, 
+       importPED, 
+       importSTARLog, 
+       importVCF,
+       prereadGTF)
