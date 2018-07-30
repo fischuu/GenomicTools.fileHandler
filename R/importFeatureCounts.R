@@ -1,9 +1,13 @@
 importFeatureCounts <- function(file, skip=0, headerLine=2){
+  tmp <- read.table(file, header=TRUE, stringsAsFactors=FALSE, skip=skip)
+  
+# If we skip some of the head, we might cut off the header, so I import it here again.  
   if(skip>0){
     header <- read.table(file, header=FALSE, stringsAsFactors=FALSE, skip=headerLine-1, nrows = 1)
+    colnames(tmp) <- header
   }
-  tmp <- read.table(file, header=TRUE, stringsAsFactors=FALSE, skip=skip)
-  colnames(tmp) <- header
+
+
   expValues <- tmp[,c(1,7)]
   geneInfo <- tmp[,1:6]
   tmp <- read.table(paste(file,".summary",sep=""), header=TRUE, stringsAsFactors=FALSE)
