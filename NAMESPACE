@@ -17,3 +17,6 @@ export(exportBed,
        importVCF,
        importXML,
        prereadGTF)
+
+S3method(print,featureCounts)
+S3method(summary,featureCounts)

@@ -1,8 +1,12 @@
-importFeatureCounts <- function(file, skip=0){
-  tmp <- read.table(file, header=TRUE, stringsAsFactors=FALSE)
+importFeatureCounts <- function(file, skip=0, headerLine=2){
+  if(skip>0){
+    header <- read.table(file, header=FALSE, stringsAsFactors=FALSE, skip=headerLine-1, nrows = 1)
+  }
+  tmp <- read.table(file, header=TRUE, stringsAsFactors=FALSE, skip=skip)
+  colnames(tmp) <- header
   expValues <- tmp[,c(1,7)]
   geneInfo <- tmp[,1:6]
-  tmp <- read.table(paste(file,".summary",sep=""), skip=skip, header=TRUE, stringsAsFactors=FALSE)
+  tmp <- read.table(paste(file,".summary",sep=""), header=TRUE, stringsAsFactors=FALSE)
   result <- list(expValues=expValues, geneInfo=geneInfo, summary=tmp)
   class(result) <- "featureCounts"
   result
