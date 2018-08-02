@@ -1,3 +1,25 @@
+#' Importing a Fasta File.
+#' 
+#' This function imports a standard fasta file
+#' 
+#' This function imports a standard fasta file. It assumes that label and sequence lines are alternating,
+#' meaning in the odd lines are the sequence names given, starting with > and in the even rows are the 
+#' corresponding sequences.
+#' 
+#' @param file Specifies the filename/path
+#' 
+#' @return An object of class \code{fa} containing the sequences. The names correspond to the sequence names given in the fasta file.
+#' 
+#' @author Daniel Fischer
+#' 
+#' @seealso print.fa, summary.fa
+#' 
+#' @examples 
+#' 
+#'  \dontrun{
+#'    importFA(file="myFasta.fa")
+#'  }
+
 # This function reads in a fasta file and prepares the vector from it
   importFA <- function(file){
     res <- readLines(file)

@@ -1,3 +1,18 @@
+#' Import from FeatureCounts
+#' 
+#' This functions imports the output from FeatureCounts
+#' 
+#' FeatureCounts produces two files, the txt that contain the expression values and then the summary that containts
+#' all the information about the mapping statistics. This function imports both and stores them in a corresponding list.
+#' 
+#' @param file Character, file name
+#' @param skip Number of lines to skip from txt file
+#' @param headerLine Linenumber that contains the header information
+#' 
+#' @return A list with expValues, geneInfo and summary
+#' 
+#' @author Daniel Fischer
+
 importFeatureCounts <- function(file, skip=0, headerLine=2){
   tmp <- read.table(file, header=TRUE, stringsAsFactors=FALSE, skip=skip)
   

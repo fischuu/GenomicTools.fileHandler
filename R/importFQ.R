@@ -1,3 +1,23 @@
+#' Importing a Fastq File.
+#' 
+#' This function imports a standard fastq file
+#' 
+#' This function imports a standard fastq file that consists out of blocks of four lines per entry
+#' 
+#' @param file Specifies the filename/path
+#' 
+#' @return An object of class \code{fq} containing the sequences and the quality meausure. The names correspond to the sequence names given in the fasta file.
+#' 
+#' @author Daniel Fischer
+#' 
+#' @seealso print.fq, summary.fq
+#' 
+#' @examples 
+#' 
+#'  \dontrun{
+#'    importFQ(file="myFastq.fq")
+#'  }
+
 # This function reads in a fasta file and prepares the vector from it
   importFQ <- function(file){
     res <- readLines(file)
