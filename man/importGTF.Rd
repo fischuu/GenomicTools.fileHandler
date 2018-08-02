@@ -28,6 +28,10 @@ importGTF(file, skip = "auto", nrow = -1, use.data.table = TRUE,
 
 \item{merge.feature}{Character, merge multiple samples to dataset}
 
+\item{merge.all}{Logial, shall all samples be merged}
+
+\item{class.names}{Vector with class names}
+
 \item{verbose}{Logical, verbose function output}
 }
 \value{

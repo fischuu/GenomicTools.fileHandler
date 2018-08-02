@@ -13,12 +13,11 @@
 #' @seealso print.fq, summary.fq
 #' 
 #' @examples 
-#' 
-#'  \dontrun{
-#'    importFQ(file="myFastq.fq")
-#'  }
+#' \dontrun{
+#'   importFQ(file="myFastq.fq")
+#' }
 #'  
-#'  @export
+#' @export
 
 # This function reads in a fasta file and prepares the vector from it
   importFQ <- function(file){

@@ -33,19 +33,5 @@ importFeatureCounts <- function(file, skip=0, headerLine=2){
   result
 }
 
-print.featureCounts <- function(x, ...){
-  cat("$expValues \n")
-  print(head(x$expValues))
-  cat("...\n",nrow(x$expValues)-6,"more rows!\n")
-  cat("\n")
-  cat("$geneInfo \n")
-  print(head(x$geneInfo))
-  cat("...\n",nrow(x$geneInfo)-6,"more rows!\n")
-  cat("\n")
-  cat("$summary \n")
-  print(x$summary)
-}
 
-summary.featureCounts <- function(x, ...){
-  x$summary
-}
+

@@ -5,10 +5,12 @@ Version: 0.1
 Date: 2018-07-26
 Author: Daniel Fischer
 Maintainer: Daniel Fischer <daniel.fischer@luke.fi>
-Depends: R (>= 3.3), data.table (>= 1.9.6)
 Description: A loose collection of I/O tools for handling genomic data.
+Depends: R (>= 3.3), data.table (>= 1.9.6)
+Imports: snpStats
 Suggests: knitr, rmarkdown
 VignetteBuilder: knitr
 License: GPL (>= 2)
+Encoding: UTF-8
 LazyLoad: yes
 RoxygenNote: 6.1.0

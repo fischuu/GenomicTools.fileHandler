@@ -19,12 +19,10 @@ This function imports a standard fastq file
 This function imports a standard fastq file that consists out of blocks of four lines per entry
 }
 \examples{
-
- \dontrun{
-   importFQ(file="myFastq.fq")
- }
+\dontrun{
+  importFQ(file="myFastq.fq")
+}
  
- @export
 }
 \seealso{
 print.fq, summary.fq

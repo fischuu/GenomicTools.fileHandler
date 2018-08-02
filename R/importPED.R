@@ -11,7 +11,7 @@
 #' @param which Names of SNPS to import
 #' @param split Columns separator in ped file
 #' @param sep Character that separates Alleles
-#' @param ns.strings Definition for missing values
+#' @param na.strings Definition for missing values
 #' @param lex.order Logical, lexicographical order
 #' @param verbose Logical, verbose output
 #' 

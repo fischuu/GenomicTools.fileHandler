@@ -26,6 +26,8 @@
 #' @param num.features names of the numeric features
 #' @param print.features Logical, print available features
 #' @param merge.feature Character, merge multiple samples to dataset
+#' @param merge.all Logial, shall all samples be merged
+#' @param class.names Vector with class names
 #' @param verbose Logical, verbose function output
 #' 
 #' @return A gtf object
@@ -84,7 +86,7 @@ importGTF <- function(file, skip="auto", nrow=-1, use.data.table=TRUE, level="ge
   out
 }
 
-importGTF.internal <- function(file, skip=auto, nrow=-1, use.data.table=TRUE, level="gene", features=NULL, num.features=num.features, print.features=FALSE, merge.feature=NULL, verbose=FALSE){
+importGTF.internal <- function(file, skip="auto", nrow=-1, use.data.table=TRUE, level="gene", features=NULL, num.features=num.features, print.features=FALSE, merge.feature=NULL, verbose=FALSE){
   gtf <- file
   
   if(skip=="auto"){
