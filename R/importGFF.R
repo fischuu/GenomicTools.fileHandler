@@ -1,111 +1,28 @@
-importGFF.internal <- function(file, skip=auto, nrow=-1, use.data.table=TRUE, level="gene", features=NULL, num.features=num.features, print.features=FALSE, merge.feature=NULL, verbose=FALSE){
-  gff <- file
+#' importGFF
+#' 
+#' Import a GFF file
+#' 
+#' This function imports a standard gff file.
+#' 
+#' @param file file or folder
+#' @param skip numeric, lines to skip
+#' @param nrow numeric, lines to read
+#' @param use.data.table logical
+#' @param level Character, read level, default: "gene"
+#' @param features features to import
+#' @param num.features names of the numeric features
+#' @param print.features Logical, print available features
+#' @param merge.feature Character, merge multiple samples to dataset
+#' @param merge.all=TRUE Logical, shall all samples be merged together
+#' @param class.names Definition of class name sin V9
+#' @param verbose Logical, verbose function output
+#' 
+#' @return A gff object
+#' 
+#' @author Daniel Fischer
+#' 
+#' @export
 
-   if(skip=="auto"){
-     if(last(strsplit(gff,"\\.")[[1]])=="gz"){
-       cat("dfg")
-     } else {
-       con  <- file(gff, open = "r")
-       search <- TRUE
-       obsRow <- 0
-       while(search){
-         obsRow <- obsRow + 1
-         tmp <- readLines(con, n = 1, warn = FALSE)  
-         if(substr(tmp,1,1)!="#"){
-           skip <- obsRow -1
-           search <- FALSE
-         }
-         if(obsRow==1000) search <- FALSE
-       }
-    close(con)
-     }
-   } else {
-     if(!is.numeric(skip)) stop("ERROR: skip needs to be a numeric value!")
-   }
-
-  if(verbose) cat("Automatically detected number of rows to skip: ", skip,"\n")
-  
-  if(use.data.table){
-    if(last(strsplit(gff,"\\.")[[1]])=="gz"){
-      cuffLoaded <- fread(input = paste('zcat',gff), sep ="\t", skip=skip, colClasses = c("character",
-                                                                                          "character",
-                                                                                          "character",
-                                                                                          "integer",
-                                                                                          "integer",
-                                                                                          "character",
-                                                                                          "character",
-                                                                                          "character",
-                                                                                          "character"))
-              } else {
-      cuffLoaded <- fread(input = gff, sep="\t", skip=skip, colClasses = c("character",
-                                                                           "character",
-                                                                           "character",
-                                                                           "integer",
-                                                                           "integer",
-                                                                           "character",
-                                                                           "character",
-                                                                           "character",
-                                                                           "character"))      
-    }
-
-    if(verbose){
-      if(sum(cuffLoaded$V3==level)==0){
-        availLevels <- unique(cuffLoaded$V3)
-        stop("The given import level '",level,"' was not found in the gff! Available level are: \n", paste(availLevels, collapse=" \n "))
-      }
-    }
-    
-    if(!is.null(level)) cuffLoaded <- cuffLoaded[cuffLoaded$V3==level,]
-    if(nrow>0) cuffLoaded <- cuffLoaded[1:nrow,]
-  } else {
-    stop("Currently the importGFF function supports only data tables.")
-    cuffLoaded <- read.csv(file=gff, sep="\t", header=FALSE, stringsAsFactors=FALSE, skip=skip, nrow=nrow)
-  }
-  # Split the variable V9
-    V9 <- cuffLoaded$V9
-    V9 <- strsplit(V9,";")
-
-  # Print the features, if requested
-    if(print.features || verbose){
-      cat("List of features in column 9:\n")
-      cat("-----------------------------\n")
-      cat(paste(paste(sapply(strsplit(V9[[1]],"="),"[",1),"\n"), collapse=""))
-    }
-    
-  # Remove the non-informative aprts from that vectors
-    if(is.null(features)){
-    # Now get the required information from V9
-      gene_id <- sapply(sapply(V9, function(x) x[grepl("ID",x)]),"[",1)
-      gene_name <- sapply(V9, function(x) x[grepl("Name",x)])
-      gene_biotype <- sapply(V9, function(x) x[grepl("gene_biotype",x)])
-      gene_id <- gsub("ID=","",gene_id)
-      gene_name <- gsub("Name=","",gene_name)
-      gene_biotype <- gsub("gene_biotype=","",gene_biotype)
-      gene_id <- gsub('\"',"",gene_id)
-      gene_name <- gsub('\"',"",gene_name)
-      gene_biotype <- gsub('\"',"",gene_biotype)
-      
-      cuffLoaded[,V9:=NULL]
-      cuffLoaded[,gene_id:=gene_id]
-      cuffLoaded[,gene_name:=gene_name]
-      cuffLoaded[,gene_biotype:=gene_biotype]
-      
-    } else {
-      for(frun in 1:length(features)){
-        tmpFeature <- sapply(V9, function(x) x[grepl(features[frun],x)])
-        tmpFeature <- gsub(" ","",tmpFeature)
-        tmpFeature <- gsub(";","",tmpFeature)
-        tmpFeature <- gsub(eval(features[frun]),"",tmpFeature)
-        tmpFeature <- gsub('\"',"",tmpFeature)
-        if(sum(is.element(features[frun],num.features))>0) tmpFeature <- as.numeric(tmpFeature)
-        cuffLoaded[,eval(features[frun]):=tmpFeature]
-      }
-      cuffLoaded[,V9:=NULL]
-    }
-
-    class(cuffLoaded) <- append(class(cuffLoaded), "gff")
-    cuffLoaded
-}
 
 importGFF <- function(file, skip="auto", nrow=-1, use.data.table=TRUE, level="gene", features=NULL, num.features=c("FPKM", "TPM"), print.features=FALSE, merge.feature=NULL, merge.all=TRUE, class.names=NULL, verbose=TRUE){
 
@@ -155,4 +72,113 @@ importGFF <- function(file, skip="auto", nrow=-1, use.data.table=TRUE, level="ge
    class(out) <- append(class(out), "gff")
  }
   out
+}
+
+importGFF.internal <- function(file, skip=auto, nrow=-1, use.data.table=TRUE, level="gene", features=NULL, num.features=num.features, print.features=FALSE, merge.feature=NULL, verbose=FALSE){
+  gff <- file
+  
+  if(skip=="auto"){
+    if(last(strsplit(gff,"\\.")[[1]])=="gz"){
+      cat("dfg")
+    } else {
+      con  <- file(gff, open = "r")
+      search <- TRUE
+      obsRow <- 0
+      while(search){
+        obsRow <- obsRow + 1
+        tmp <- readLines(con, n = 1, warn = FALSE)  
+        if(substr(tmp,1,1)!="#"){
+          skip <- obsRow -1
+          search <- FALSE
+        }
+        if(obsRow==1000) search <- FALSE
+      }
+      close(con)
+    }
+  } else {
+    if(!is.numeric(skip)) stop("ERROR: skip needs to be a numeric value!")
+  }
+  
+  if(verbose) cat("Automatically detected number of rows to skip: ", skip,"\n")
+  
+  if(use.data.table){
+    if(last(strsplit(gff,"\\.")[[1]])=="gz"){
+      cuffLoaded <- fread(input = paste('zcat',gff), sep ="\t", skip=skip, colClasses = c("character",
+                                                                                          "character",
+                                                                                          "character",
+                                                                                          "integer",
+                                                                                          "integer",
+                                                                                          "character",
+                                                                                          "character",
+                                                                                          "character",
+                                                                                          "character"))
+    } else {
+      cuffLoaded <- fread(input = gff, sep="\t", skip=skip, colClasses = c("character",
+                                                                           "character",
+                                                                           "character",
+                                                                           "integer",
+                                                                           "integer",
+                                                                           "character",
+                                                                           "character",
+                                                                           "character",
+                                                                           "character"))      
+    }
+    
+    if(verbose){
+      if(sum(cuffLoaded$V3==level)==0){
+        availLevels <- unique(cuffLoaded$V3)
+        stop("The given import level '",level,"' was not found in the gff! Available level are: \n", paste(availLevels, collapse=" \n "))
+      }
+    }
+    
+    if(!is.null(level)) cuffLoaded <- cuffLoaded[cuffLoaded$V3==level,]
+    if(nrow>0) cuffLoaded <- cuffLoaded[1:nrow,]
+  } else {
+    stop("Currently the importGFF function supports only data tables.")
+    cuffLoaded <- read.csv(file=gff, sep="\t", header=FALSE, stringsAsFactors=FALSE, skip=skip, nrow=nrow)
+  }
+  # Split the variable V9
+  V9 <- cuffLoaded$V9
+  V9 <- strsplit(V9,";")
+  
+  # Print the features, if requested
+  if(print.features || verbose){
+    cat("List of features in column 9:\n")
+    cat("-----------------------------\n")
+    cat(paste(paste(sapply(strsplit(V9[[1]],"="),"[",1),"\n"), collapse=""))
+  }
+  
+  # Remove the non-informative aprts from that vectors
+  if(is.null(features)){
+    # Now get the required information from V9
+    gene_id <- sapply(sapply(V9, function(x) x[grepl("ID",x)]),"[",1)
+    gene_name <- sapply(V9, function(x) x[grepl("Name",x)])
+    gene_biotype <- sapply(V9, function(x) x[grepl("gene_biotype",x)])
+    gene_id <- gsub("ID=","",gene_id)
+    gene_name <- gsub("Name=","",gene_name)
+    gene_biotype <- gsub("gene_biotype=","",gene_biotype)
+    gene_id <- gsub('\"',"",gene_id)
+    gene_name <- gsub('\"',"",gene_name)
+    gene_biotype <- gsub('\"',"",gene_biotype)
+    
+    cuffLoaded[,V9:=NULL]
+    cuffLoaded[,gene_id:=gene_id]
+    cuffLoaded[,gene_name:=gene_name]
+    cuffLoaded[,gene_biotype:=gene_biotype]
+    
+  } else {
+    for(frun in 1:length(features)){
+      tmpFeature <- sapply(V9, function(x) x[grepl(features[frun],x)])
+      tmpFeature <- gsub(" ","",tmpFeature)
+      tmpFeature <- gsub(";","",tmpFeature)
+      tmpFeature <- gsub(eval(features[frun]),"",tmpFeature)
+      tmpFeature <- gsub('\"',"",tmpFeature)
+      if(sum(is.element(features[frun],num.features))>0) tmpFeature <- as.numeric(tmpFeature)
+      cuffLoaded[,eval(features[frun]):=tmpFeature]
+    }
+    cuffLoaded[,V9:=NULL]
+  }
+  
+  class(cuffLoaded) <- append(class(cuffLoaded), "gff")
+  cuffLoaded
 }

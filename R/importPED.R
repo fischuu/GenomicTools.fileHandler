@@ -1,8 +1,33 @@
+#' importPED
+#' 
+#' Import a PED/MAP file pair
+#' 
+#' This function is to a large extend taken from \code{snpStat::read.pedmap}, but here is internally the \code{data.table::fread} function used
+#' that resulted in much faster file processing. 
+#' 
+#' @param file ped filename
+#' @param n Number of samples to read
+#' @param snps map filename
+#' @param which Names of SNPS to import
+#' @param split Columns separator in ped file
+#' @param sep Character that separates Alleles
+#' @param ns.strings Definition for missing values
+#' @param lex.order Logical, lexicographical order
+#' @param verbose Logical, verbose output
+#' 
+#' @return a pedmap object
+#' 
+#' @author Daniel Fischer
+#' 
+#' @export
+
+
+
 importPED <-   function (file, n, snps, which, split = "\t| +", sep = ".", na.strings = "0", 
                          lex.order = FALSE, verbose=TRUE) {
 
   # This file is taken to a large extend from the snpStat package
-  # The difference, however, is the use of fread that speeds up the function.
+  # The difference, however, is the use of fread that speeds up the function substantially.
 
     r0 <- as.raw(0)
     r1 <- as.raw(1)

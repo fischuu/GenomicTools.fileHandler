@@ -31,6 +31,8 @@ This function imports a standard bed-file into a data.frame. It is basically a c
    
    novelBed.imp <- importBed(file="myLocs.bed")
  }
+ 
+ @export
 }
 \seealso{
 [exportBed], [read.table]

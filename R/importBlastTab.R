@@ -9,6 +9,8 @@
 #' @return A data.frame
 #' 
 #' @author Daniel Fischer       
+#' 
+#' @export
 
 
 importBlastTab <- function(file){

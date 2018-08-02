@@ -23,6 +23,8 @@
 #'
 #' exportFA(myFasta, file="myFasta.fa")
 #' }
+#' 
+#' @export
 
 exportFA <- function(fa, file=NULL){
   faNames <- names(fa)

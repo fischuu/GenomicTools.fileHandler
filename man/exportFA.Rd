@@ -32,6 +32,7 @@ myFasta <- getFastaFromBed(novelBed, species="Bos taurus",
 
 exportFA(myFasta, file="myFasta.fa")
 }
+
 }
 \author{
 Daniel Fischer

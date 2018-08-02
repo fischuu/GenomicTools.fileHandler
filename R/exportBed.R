@@ -22,6 +22,8 @@
 #' exportBed(novelBed, file="myLocs.bed")
 #' exportBed(novelBed, file="myLocs_wHeader.bed", header=TRUE)
 #' }
+#' 
+#' @export
 
 exportBed <- function(x, file=NULL, header=FALSE){
 

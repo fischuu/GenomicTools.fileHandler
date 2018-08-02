@@ -19,6 +19,8 @@
 #'  \dontrun{
 #'    importFA(file="myFasta.fa")
 #'  }
+#'  
+#'  @export
 
 # This function reads in a fasta file and prepares the vector from it
   importFA <- function(file){

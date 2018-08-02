@@ -23,6 +23,8 @@ This function imports a standard fastq file that consists out of blocks of four 
  \dontrun{
    importFQ(file="myFastq.fq")
  }
+ 
+ @export
 }
 \seealso{
 print.fq, summary.fq

@@ -12,6 +12,8 @@
 #' @return A list with expValues, geneInfo and summary
 #' 
 #' @author Daniel Fischer
+#' 
+#' @export
 
 importFeatureCounts <- function(file, skip=0, headerLine=2){
   tmp <- read.table(file, header=TRUE, stringsAsFactors=FALSE, skip=skip)

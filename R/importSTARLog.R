@@ -1,4 +1,16 @@
-# This function imports the log file output from the Star Mapper
+#' importSTARLog
+#' 
+#' Import the Log-File from STAR
+#' 
+#' This function imports the Log file from STAR
+#' 
+#' @param file The file name
+#' 
+#' @return a data frame
+#' 
+#' @author Daniel Fischer
+#' 
+#' @export
 
 importSTARLog <- function(file){
   rawInput <- readLines(file)

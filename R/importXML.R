@@ -1,3 +1,20 @@
+#' importXML
+#' 
+#' Import an Blast XML file
+#' 
+#' This function imports XML files as provided as Blast output, it is mainly aimied to import the output of the hoardeR package
+#' @param folder Character, folder path
+#' @param seqNames Names of sequences
+#' @param which Which sequences to import
+#' @param idTH Use the threshold as cut-off
+#' @param verbose Logical, verbose output
+#' 
+#' @return An XML object
+#' 
+#' @author Daniel Fischer
+#' 
+#' @export
+
 
 importXML <- function(folder, seqNames=NULL, which=NULL, idTH = 0.8, verbose=TRUE){
   # Get the filenames and statistics about how many XML files we have

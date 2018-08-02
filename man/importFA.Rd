@@ -25,6 +25,8 @@ corresponding sequences.
  \dontrun{
    importFA(file="myFasta.fa")
  }
+ 
+ @export
 }
 \seealso{
 print.fa, summary.fa

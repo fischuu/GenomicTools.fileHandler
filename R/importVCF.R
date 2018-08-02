@@ -1,3 +1,18 @@
+#' importVCF
+#' 
+#' Import a VCF function
+#' 
+#' This function imports a VCF file
+#' 
+#' @param file The file name
+#' @param na.seq The missing value definition
+#' 
+#' @return A vcf object
+#' 
+#' @author Daniel Fischer
+#' 
+#' @export
+
 importVCF <- function(file, na.seq="./."){
 # Necessary variable declaration for Cran checks
   V3 <- NULL

@@ -32,6 +32,7 @@ novelBed <- data.frame(Chr=c(11,18,3),
 exportBed(novelBed, file="myLocs.bed")
 exportBed(novelBed, file="myLocs_wHeader.bed", header=TRUE)
 }
+
 }
 \author{
 Daniel Fischer
