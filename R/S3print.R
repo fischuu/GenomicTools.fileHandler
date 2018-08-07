@@ -16,8 +16,43 @@ print.bed <- function(x, n=6, ...){
   n <- min(n, nrow(x))
   out <- as.data.frame(x)
   print(out[1:n,])
-  if(n<nrow(x)) cat("...\n",nrow(x)-n,"rows not displayed.")
+  if(n<nrow(x)) message("...\n",nrow(x)-n," rows not displayed.")
 }
+
+#' Print a fa Object
+#' 
+#' Prints a \code{fa} object.
+#' 
+#' The print function displays a fa object
+#' 
+#' @name print.fa
+#' @docType methods
+#' @param x Object of class \code{fa}.
+#' @param n Number of sequences to display
+#' @param seq.out Length of the subsequence to display
+#' @param ... Additional parameters
+#' @author Daniel Fischer
+#' @keywords methods print
+#' @export
+
+
+`print.fa` <- function(x, n=2, seq.out=50, ...){
+  if(!is.numeric(n)) stop("The argument n has to be numeric.")
+  if(n>length(x)){
+    n <- length(x)
+    warning("n cannot be larger than length(x). Hence, I set n <- length(x)")
+  }
+  X <- x[1:n]
+  if(!is.null(seq.out)){
+    if(!is.numeric(seq.out)) stop("The argument seq.out has to be numeric.")
+    for(i in 1:n){
+      X[i] <- paste(substr(X[i],1,seq.out),"...",sep="")
+    }
+  }
+  print(X,...)
+  if(n<length(x)) message("Fasta sequences ommited to print: ", length(x)-n)
+} 
+
 
 #' Print a featureCounts Object
 #' 

@@ -6,7 +6,7 @@
 #' 
 #' @name summary.bed
 #' @docType methods
-#' @param x Object of class \code{bed}.
+#' @param object Object of class \code{bed}.
 #' @param ... Additional parameters
 #' @author Daniel Fischer
 #' @keywords methods summary
@@ -19,6 +19,35 @@ summary.bed <- function(object, ...){
   cat("Number of chromosomes  :", length(unique(object[,1])), "\n")
 }
 
+#' Summary of a fa Object
+#' 
+#' Summarizes a \code{fa} object.
+#' 
+#' The summary function displays an informative summary of a fa object
+#' 
+#' @name summary.fa
+#' @docType methods
+#' @param object Object of class \code{bed}.
+#' @param ... Additional parameters
+#' @author Daniel Fischer
+#' @keywords methods summary
+#' @export
+#' 
+summary.fa <- function(object, ...){
+  
+  nCharObj <- nchar(object)
+  cat("Summary of fa object\n")
+  cat("--------------------\n")
+  cat("Sequences      :",length(object),"\n")
+  cat("Minimum length :",min(nCharObj),"\n")
+  cat("1st quartile   :",quantile(nCharObj, 0.25),"\n")
+  cat("Median length  :",median(nCharObj),"\n")
+  cat("Average length :",mean(nCharObj),"\n")
+  cat("3rd quartile   :",quantile(nCharObj, 0.75),"\n")
+  cat("Maximum length :",max(nCharObj),"\n")
+  invisible(object)
+  
+} 
 
 summary.featureCounts <- function(object, ...){
   object$summary

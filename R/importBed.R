@@ -20,7 +20,7 @@
 #'  # Define here the location on HDD for the example file
 #'    fpath <- system.file("extdata","example.bed", package="GenomicTools.fileHandler")
 #'  # Import the example bed file  
-#'    novelBed.imp <- importBed(file=fpath)
+#'    bedFile <- importBed(file=fpath)
 #'  
 #' @export
 
