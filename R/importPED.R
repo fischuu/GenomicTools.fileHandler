@@ -173,6 +173,6 @@ importPED <-   function (file, n, snps, which, split = "\t| +", sep = ".", na.st
     rownames(result) <- fam$member
     meta <- list(monomorph=sum(mono), multiallelic=sum(mallelic), missing=sum(a1m), pedFile=file, mapFile=snps)
     result <- list(genotypes = result, fam = fam, map = map, meta=meta)
-    class(result) <- "PedMap"
+    class(result) <- "pedMap"
     result
   }

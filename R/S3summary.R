@@ -1,3 +1,25 @@
+#' Summary of a bed Object
+#' 
+#' Summarizes a \code{bed} object.
+#' 
+#' The summary function displays an informative summary of a bed object
+#' 
+#' @name summary.bed
+#' @docType methods
+#' @param x Object of class \code{bed}.
+#' @param ... Additional parameters
+#' @author Daniel Fischer
+#' @keywords methods summary
+#' @export
+
+summary.bed <- function(object, ...){
+  cat("Bed Summary\n")
+  cat("---------------\n")
+  cat("Number of lines        :", nrow(object),"\n")
+  cat("Number of chromosomes  :", length(unique(object[,1])), "\n")
+}
+
+
 summary.featureCounts <- function(object, ...){
   object$summary
 }

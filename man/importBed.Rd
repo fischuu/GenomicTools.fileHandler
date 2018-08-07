@@ -4,12 +4,14 @@
 \alias{importBed}
 \title{Importing a Bed File.}
 \usage{
-importBed(file, header = FALSE)
+importBed(file, header = FALSE, sep = "\\t")
 }
 \arguments{
 \item{file}{Specifies the filename/path}
 
 \item{header}{Logical, is a header present}
+
+\item{sep}{Column separator}
 }
 \value{
 A \code{data.frame}
@@ -18,19 +20,16 @@ A \code{data.frame}
 This function imports a standard bed file
 }
 \details{
-This function imports a standard bed-file into a data.frame. It is basically a convenience wrapper around \code{read.table}
+This function imports a standard bed-file into a data.frame. It is basically a convenience wrapper around \code{read.table}. However,
+if no header lines is given, this function automatically assigns the column names, as they are given in the bed-specification on the
+Ensembl page here: https://www.ensembl.org/info/website/upload/bed.html
 }
 \examples{
-\dontrun{
-   novelBed <- data.frame(Chr=c(11,18,3),
-                          Start=c(72554673, 62550696, 18148822),
-                          End=c(72555273, 62551296, 18149422),
-                          Gene=c("LOC1", "LOC2", "LOC3"))
    
-   exportBed(novelBed, file="myLocs.bed")
-   
-   novelBed.imp <- importBed(file="myLocs.bed")
-}
+ # Define here the location on HDD for the example file
+   fpath <- system.file("extdata","example.bed", package="GenomicTools.fileHandler")
+ # Import the example bed file  
+   novelBed.imp <- importBed(file=fpath)
  
 }
 \seealso{

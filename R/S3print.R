@@ -1,3 +1,24 @@
+#' Print a bed Object
+#' 
+#' Prints a \code{bed} object.
+#' 
+#' The print function displays a bed object
+#' 
+#' @name print.bed
+#' @docType methods
+#' @param x Object of class \code{bed}.
+#' @param ... Additional parameters
+#' @author Daniel Fischer
+#' @keywords methods print
+#' @export
+
+print.bed <- function(x, n=6, ...){
+  n <- min(n, nrow(x))
+  out <- as.data.frame(x)
+  print(out[1:n,])
+  if(n<nrow(x)) cat("...\n",nrow(x)-n,"rows not displayed.")
+}
+
 #' Print a featureCounts Object
 #' 
 #' Prints an \code{featureCounts} object.
@@ -25,8 +46,22 @@ print.featureCounts <- function(x, ...){
   print(x$summary)
 }
 
-
-print.PedMap <- function(x, n=6, m=6, ...){
+#' Print a pedMap Object
+#' 
+#' Prints an \code{pedMap} object.
+#' 
+#' The print function displays a pedMap object
+#' 
+#' @name print.pedMap
+#' @docType methods
+#' @param x Object of class \code{pedMap}.
+#' @param n Number of samples to display
+#' @param m Number of columns to display
+#' @param ... Additional parameters
+#' @author Daniel Fischer
+#' @keywords methods print
+#' @export
+print.pedMap <- function(x, n=6, m=6, ...){
   # Correct for too large n and m
   nm <- dim(x$genotypes)
   n <- min(n,nm[1])

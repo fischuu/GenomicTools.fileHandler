@@ -93,18 +93,3 @@ importVCF <- function(file, na.seq="./."){
   class(out) <- "vcf"
   out
 }
-
-####################################
-##
-## TESTING AREA FOR THE FUNCTION
-##
-####################################
-
-#tmp <- importPED(file="/home/ejo138/ownCloud/Luke/Projects/Consulting/Dog-Liver/Data/NWT_151110.ped",
-#                 snps="/home/ejo138/ownCloud/Luke/Projects/Consulting/Dog-Liver/Data/NWT_151110.map")
-#tmp
-#tmp2 <- importVCF(file="/home/ejo138/ownCloud/Luke/Projects/Consulting/Dog-Liver/Data/NWT_151110.vcf")
-#tmp2
-
-#genotDataVCF <- importVCF(file="/home/ejo138/ownCloud/R-Packages-Pages/GenomicTools/Datasets/genotypes.vcf")
-#save(genotDataVCF, file="/home/ejo138/GitHub/GenomicTools/data/genotDataVCF.rda")
