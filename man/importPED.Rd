@@ -20,11 +20,11 @@ importPED(file, n, snps, which, split = "\\t| +", sep = ".",
 
 \item{sep}{Character that separates Alleles}
 
+\item{na.strings}{Definition for missing values}
+
 \item{lex.order}{Logical, lexicographical order}
 
 \item{verbose}{Logical, verbose output}
-
-\item{ns.strings}{Definition for missing values}
 }
 \value{
 a pedmap object

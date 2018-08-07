@@ -22,9 +22,9 @@
 #'    exportBed(novelBed, file="myLocs.bed")
 #'    
 #'    novelBed.imp <- importBed(file="myLocs.bed")
-#'  }
+#' }
 #'  
-#'  @export
+#' @export
 
 importBed <- function(file, header=FALSE){
 

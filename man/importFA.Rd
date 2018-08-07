@@ -21,12 +21,10 @@ meaning in the odd lines are the sequence names given, starting with > and in th
 corresponding sequences.
 }
 \examples{
-
- \dontrun{
-   importFA(file="myFasta.fa")
- }
+\dontrun{
+  importFA(file="myFasta.fa")
+}
  
- @export
 }
 \seealso{
 print.fa, summary.fa

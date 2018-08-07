@@ -5,7 +5,7 @@
 #' This function imports a standard gff3 file.
 #' 
 #' @param gff file or folder
-#' @param chromosome The chromosome to import
+#' @param chromosomes The chromosome to import
 #' 
 #' @return A gff object
 #' 

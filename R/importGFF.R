@@ -13,7 +13,7 @@
 #' @param num.features names of the numeric features
 #' @param print.features Logical, print available features
 #' @param merge.feature Character, merge multiple samples to dataset
-#' @param merge.all=TRUE Logical, shall all samples be merged together
+#' @param merge.all Logical, shall all samples be merged together
 #' @param class.names Definition of class name sin V9
 #' @param verbose Logical, verbose function output
 #' 
@@ -74,7 +74,7 @@ importGFF <- function(file, skip="auto", nrow=-1, use.data.table=TRUE, level="ge
   out
 }
 
-importGFF.internal <- function(file, skip=auto, nrow=-1, use.data.table=TRUE, level="gene", features=NULL, num.features=num.features, print.features=FALSE, merge.feature=NULL, verbose=FALSE){
+importGFF.internal <- function(file, skip="auto", nrow=-1, use.data.table=TRUE, level="gene", features=NULL, num.features=num.features, print.features=FALSE, merge.feature=NULL, verbose=FALSE){
   gff <- file
   
   if(skip=="auto"){

@@ -9,7 +9,7 @@ importGFF3(gff, chromosomes)
 \arguments{
 \item{gff}{file or folder}
 
-\item{chromosome}{The chromosome to import}
+\item{chromosomes}{The chromosome to import}
 }
 \value{
 A gff object

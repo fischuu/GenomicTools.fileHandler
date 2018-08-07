@@ -28,11 +28,11 @@ importGFF(file, skip = "auto", nrow = -1, use.data.table = TRUE,
 
 \item{merge.feature}{Character, merge multiple samples to dataset}
 
+\item{merge.all}{Logical, shall all samples be merged together}
+
 \item{class.names}{Definition of class name sin V9}
 
 \item{verbose}{Logical, verbose function output}
-
-\item{merge.all=TRUE}{Logical, shall all samples be merged together}
 }
 \value{
 A gff object
