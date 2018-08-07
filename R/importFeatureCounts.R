@@ -13,6 +13,13 @@
 #' 
 #' @author Daniel Fischer
 #' 
+#' @examples 
+#' 
+#'  # Define here the location on HDD for the example file
+#'    fpath <- system.file("extdata","featureCountsExample.txt", package="GenomicTools.fileHandler")
+#'  # Import the example bed file  
+#'    fcFile <- importFeatureCounts(file=fpath)
+#'  
 #' @export
 
 importFeatureCounts <- function(file, skip=0, headerLine=2){

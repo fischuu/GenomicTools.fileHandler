@@ -79,6 +79,20 @@ summary.fq <- function(object, ...){
   
 } 
 
+#' Summary of a featureCounts Object
+#' 
+#' Summarizes a \code{featureCounts} object.
+#' 
+#' The summary function displays an informative summary of a featureCounts object
+#' 
+#' @name summary.featureCounts
+#' @docType methods
+#' @param object Object of class \code{featureCounts}.
+#' @param ... Additional parameters
+#' @author Daniel Fischer
+#' @keywords methods summary
+#' @export
+#' 
 
 summary.featureCounts <- function(object, ...){
   object$summary
