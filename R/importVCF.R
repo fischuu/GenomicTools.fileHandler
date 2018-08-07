@@ -2,7 +2,10 @@
 #' 
 #' Import a VCF function
 #' 
-#' This function imports a VCF file
+#' This function imports a VCF file.
+#' 
+#' The example file was downloaded from here:
+#' ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/release/2010_07/exon/snps/
 #' 
 #' @param file The file name
 #' @param na.seq The missing value definition
@@ -10,6 +13,13 @@
 #' @return A vcf object
 #' 
 #' @author Daniel Fischer
+#' 
+#' @examples 
+#' 
+#'  # Define here the location on HDD for the example file
+#'    fpath <- system.file("extdata","example.vcf", package="GenomicTools.fileHandler")
+#'  # Import the example vcf file  
+#'    importVCF(fpath)
 #' 
 #' @export
 
@@ -79,11 +89,9 @@ importVCF <- function(file, na.seq="./."){
    genotypes[get(genoRun) == "1/1", eval(genoRun) := "03"]
   }
   
-#  genotypes[,SNP:=map[[2]]]
-  genotypes <- genotypes[, data.table(t(.SD), keep.rownames=TRUE)]  # Takes long, IMPROVE IT!!!
-#  genotypes <- dcast.data.table(melt(genotypes, id.vars = "SNP"), variable ~ SNP) # This solution to above problem leads to wrong results!!!
-  genotypesRN <- as.character(genotypes[[1]])
-# genotypes <- genotypes[, .SD, .SDcols = -1] # TAKES LONG, IMPROVE IT!!!
+   genotypesRN <- colnames(genotypes)
+   genotypes <- genotypes[, data.table(t(.SD), keep.rownames=TRUE)]  # Takes long, IMPROVE IT!!!
+
   genotypes[,rn:=NULL]
   setnames(genotypes, map[[2]])
   rownames(genotypes) <- genotypesRN

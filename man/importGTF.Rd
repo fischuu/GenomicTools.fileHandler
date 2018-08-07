@@ -56,6 +56,18 @@ filenames of the gtf will be used instead (without gtf extension).
 By default the function imprts all features in column 9 as string character. However, for common labels (FPKM and TPM) the class
 type is set automatically to numeric. Additional numerical feature names can be defined with the \code{num.feature} option.
 }
+\examples{
+
+ # Define here the location on HDD for the example file
+   fpath <- system.file("extdata","example.gtf", package="GenomicTools.fileHandler")
+ # Same file, but this time as gzipped version
+   fpath.gz <- system.file("extdata","example2.gtf.gz", package="GenomicTools.fileHandler")
+   
+ # Import the example gtf file  
+   importGTF(fpath, level="transcript", features=c("gene_id","FPKM"))
+   importGTF(fpath.gz, level="transcript", features=c("gene_id","FPKM"))
+ 
+}
 \author{
 Daniel Fischer
 }

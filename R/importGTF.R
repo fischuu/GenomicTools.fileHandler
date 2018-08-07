@@ -40,7 +40,8 @@
 #'    fpath <- system.file("extdata","example.gtf", package="GenomicTools.fileHandler")
 #'  # Same file, but this time as gzipped version
 #'    fpath.gz <- system.file("extdata","example2.gtf.gz", package="GenomicTools.fileHandler")
-#'  # Import the example bed file  
+#'    
+#'  # Import the example gtf file  
 #'    importGTF(fpath, level="transcript", features=c("gene_id","FPKM"))
 #'    importGTF(fpath.gz, level="transcript", features=c("gene_id","FPKM"))
 #'  

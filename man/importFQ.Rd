@@ -22,7 +22,7 @@ This function imports a standard fastq file that consists out of blocks of four 
 
  # Define here the location on HDD for the example file
    fpath <- system.file("extdata","example.fastq", package="GenomicTools.fileHandler")
- # Import the example bed file  
+ # Import the example fastq file  
    fastqFile <- importFQ(file=fpath)
  
 }

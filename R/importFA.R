@@ -22,7 +22,7 @@
 #' 
 #'  # Define here the location on HDD for the example file
 #'    fpath <- system.file("extdata","example.fasta", package="GenomicTools.fileHandler")
-#'  # Import the example bed file  
+#'  # Import the example fasta file  
 #'    fastaFile <- importFA(file=fpath)
 #'  
 #' @export

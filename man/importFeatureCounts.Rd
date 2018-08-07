@@ -27,7 +27,7 @@ all the information about the mapping statistics. This function imports both and
 
  # Define here the location on HDD for the example file
    fpath <- system.file("extdata","featureCountsExample.txt", package="GenomicTools.fileHandler")
- # Import the example bed file  
+ # Import the example featureCounts file  
    fcFile <- importFeatureCounts(file=fpath)
  
 }

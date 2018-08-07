@@ -135,6 +135,7 @@ print.featureCounts <- function(x, ...){
 #' @author Daniel Fischer
 #' @keywords methods print
 #' @export
+ 
 print.pedMap <- function(x, n=6, m=6, ...){
   # Correct for too large n and m
   nm <- dim(x$genotypes)
@@ -152,6 +153,22 @@ print.pedMap <- function(x, n=6, m=6, ...){
   cat("...",nrow(x$map)-n,"rows omited \n")
 } 
 
+#' Print a vcf Object
+#' 
+#' Prints an \code{vcf} object.
+#' 
+#' The print function displays a vcf object
+#' 
+#' @name print.vcf
+#' @docType methods
+#' @param x Object of class \code{vcf}.
+#' @param n Number of samples to display
+#' @param m Number of columns to display
+#' @param ... Additional parameters
+#' @author Daniel Fischer
+#' @keywords methods print
+#' @export
+
 
 print.vcf <- function(x, n=6, m=6, fullHeader=FALSE,...){
   
@@ -163,7 +180,7 @@ print.vcf <- function(x, n=6, m=6, fullHeader=FALSE,...){
   
   # Print the genotypes  
   cat("First",n,"rows and",m,"columns of $genotypes:\n")
-  print(x$genotypes[1:n,x$map$snp.names[1:m], with=FALSE])
+  print(cbind(rownames(x$genotypes)[1:n], x$genotypes[1:n,x$map$snp.names[1:m], with=FALSE] ))
   cat("...",nrow(x$genotypes)-n,"rows and",ncol(x$genotypes)-m," columns omited \n\n")
   
   # Print the header
