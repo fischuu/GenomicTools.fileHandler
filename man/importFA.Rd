@@ -25,9 +25,11 @@ The example file was downloaded from here and was then further truncated respect
 ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/data/HG00096/sequence_read/
 }
 \examples{
-\dontrun{
-  importFA(file="myFasta.fa")
-}
+
+ # Define here the location on HDD for the example file
+   fpath <- system.file("extdata","example.fasta", package="GenomicTools.fileHandler")
+ # Import the example bed file  
+   fastaFile <- importFA(file=fpath)
  
 }
 \seealso{

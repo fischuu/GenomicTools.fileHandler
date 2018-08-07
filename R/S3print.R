@@ -53,6 +53,45 @@ print.bed <- function(x, n=6, ...){
   if(n<length(x)) message("Fasta sequences ommited to print: ", length(x)-n)
 } 
 
+#' Print a fa Object
+#' 
+#' Prints a \code{fa} object.
+#' 
+#' The print function displays a fa object
+#' 
+#' @name print.fq
+#' @docType methods
+#' @param x Object of class \code{fq}.
+#' @param n Number of sequences to display
+#' @param seq.out Length of the subsequence to display
+#' @param print.qual Logical, shall the quality measures also be printed
+#' @param ... Additional parameters
+#' @author Daniel Fischer
+#' @keywords methods print
+#' @export
+
+
+`print.fq` <- function(x, n=2, seq.out=50, print.qual=TRUE, ...){
+  seq <- x$seq
+  qual <- x$qual
+  if(!is.numeric(n)) stop("The argument n has to be numeric.")
+  if(n>length(seq)){
+    n <- length(seq)
+    warning("n cannot be larger than length(x). Hence, I set n <- length(x)")
+  }
+  seq <- seq[1:n]
+  qual <- qual[1:n]
+  if(!is.null(seq.out)){
+    if(!is.numeric(seq.out)) stop("The argument seq.out has to be numeric.")
+    for(i in 1:n){
+      seq[i] <- paste(substr(seq[i],1,seq.out),"...",sep="")
+      qual[i] <- paste(substr(qual[i],1,seq.out),"...",sep="")
+    }
+  }
+  if(print.qual) seq <- rbind(seq, qual)
+  print(seq,...)
+  if(n<length(seq)) message("Fastq sequences ommited to print: ", length(x$seq)-n)
+} 
 
 #' Print a featureCounts Object
 #' 

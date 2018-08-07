@@ -19,9 +19,11 @@ This function imports a standard fastq file
 This function imports a standard fastq file that consists out of blocks of four lines per entry
 }
 \examples{
-\dontrun{
-  importFQ(file="myFastq.fq")
-}
+
+ # Define here the location on HDD for the example file
+   fpath <- system.file("extdata","example.fastq", package="GenomicTools.fileHandler")
+ # Import the example bed file  
+   fastqFile <- importFQ(file=fpath)
  
 }
 \seealso{

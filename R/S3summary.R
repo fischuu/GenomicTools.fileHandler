@@ -27,7 +27,7 @@ summary.bed <- function(object, ...){
 #' 
 #' @name summary.fa
 #' @docType methods
-#' @param object Object of class \code{bed}.
+#' @param object Object of class \code{fa}.
 #' @param ... Additional parameters
 #' @author Daniel Fischer
 #' @keywords methods summary
@@ -48,6 +48,37 @@ summary.fa <- function(object, ...){
   invisible(object)
   
 } 
+
+#' Summary of a fq Object
+#' 
+#' Summarizes a \code{fq} object.
+#' 
+#' The summary function displays an informative summary of a fq object
+#' 
+#' @name summary.fq
+#' @docType methods
+#' @param object Object of class \code{fq}.
+#' @param ... Additional parameters
+#' @author Daniel Fischer
+#' @keywords methods summary
+#' @export
+#' 
+summary.fq <- function(object, ...){
+  
+  nCharObj <- nchar(object$seq)
+  cat("Summary of fq object\n")
+  cat("--------------------\n")
+  cat("Sequences      :",length(object$seq),"\n")
+  cat("Minimum length :",min(nCharObj),"\n")
+  cat("1st quartile   :",quantile(nCharObj, 0.25),"\n")
+  cat("Median length  :",median(nCharObj),"\n")
+  cat("Average length :",mean(nCharObj),"\n")
+  cat("3rd quartile   :",quantile(nCharObj, 0.75),"\n")
+  cat("Maximum length :",max(nCharObj),"\n")
+  invisible(object)
+  
+} 
+
 
 summary.featureCounts <- function(object, ...){
   object$summary
