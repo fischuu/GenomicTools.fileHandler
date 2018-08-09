@@ -14,6 +14,8 @@
 
 \item{m}{Number of columns to display}
 
+\item{fullHeader}{Logical, shall the whole header be printed}
+
 \item{...}{Additional parameters}
 }
 \description{

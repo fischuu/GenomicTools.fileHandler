@@ -7,6 +7,7 @@
 #' @name print.bed
 #' @docType methods
 #' @param x Object of class \code{bed}.
+#' @param n Number of lines to print
 #' @param ... Additional parameters
 #' @author Daniel Fischer
 #' @keywords methods print
@@ -164,6 +165,7 @@ print.pedMap <- function(x, n=6, m=6, ...){
 #' @param x Object of class \code{vcf}.
 #' @param n Number of samples to display
 #' @param m Number of columns to display
+#' @param fullHeader Logical, shall the whole header be printed
 #' @param ... Additional parameters
 #' @author Daniel Fischer
 #' @keywords methods print

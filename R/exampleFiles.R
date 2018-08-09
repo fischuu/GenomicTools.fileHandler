@@ -10,8 +10,6 @@
 #' @docType data
 #' @author Daniel Fischer
 #' 
-#' @usage system.file("extdata","example.bed", package="GenomicTools.fileHandler")
-#'
 #' @format A file with three column Chr, Start and End.
 #'
 #' @keywords data
@@ -29,8 +27,6 @@ NULL
 #' @docType data
 #' @author Daniel Fischer
 #' 
-#' @usage system.file("extdata","example.fasta", package="GenomicTools.fileHandler")
-#'
 #' @keywords data
 NULL
 
@@ -46,8 +42,6 @@ NULL
 #' @docType data
 #' @author Daniel Fischer
 #' 
-#' @usage system.file("extdata","example.fastq", package="GenomicTools.fileHandler")
-#'
 #' @keywords data
 NULL
 
@@ -63,8 +57,6 @@ NULL
 #' @docType data
 #' @author Daniel Fischer
 #' 
-#' @usage system.file("extdata","example.gff", package="GenomicTools.fileHandler")
-#'
 #' @keywords data
 NULL
 
@@ -80,8 +72,6 @@ NULL
 #' @docType data
 #' @author Daniel Fischer
 #' 
-#' @usage system.file("extdata","example.gtf", package="GenomicTools.fileHandler")
-#'
 #' @keywords data
 NULL
 
@@ -97,8 +87,6 @@ NULL
 #' @docType data
 #' @author Daniel Fischer
 #' 
-#' @usage system.file("extdata","example2.gtf.gz", package="GenomicTools.fileHandler")
-#'
 #' @keywords data
 NULL
 
@@ -109,15 +97,14 @@ NULL
 #' to try the corresponding functions.
 #' 
 #' The file is locate din the /extdata folder of the package and is accessible after installation via
-#' \code{system.file("extdata","example.ped", package="GenomicTools.fileHandler")} and
+#' \code{system.file("extdata","example.ped", package="GenomicTools.fileHandler")}
+#' 
 #' \code{system.file("extdata","example.ped", package="GenomicTools.fileHandler")}
 #'
 #' @name example.ped
 #' @docType data
 #' @author Daniel Fischer
 #' 
-#' @usage system.file("extdata","example.ped", package="GenomicTools.fileHandler")
-#'
 #' @keywords data
 NULL
 
@@ -134,7 +121,5 @@ NULL
 #' @docType data
 #' @author Daniel Fischer
 #' 
-#' @usage system.file("extdata","example.vcf", package="GenomicTools.fileHandler")
-#'
 #' @keywords data
 NULL

@@ -4,9 +4,6 @@
 \name{example.vcf}
 \alias{example.vcf}
 \title{Example Variant data in vcf-Format}
-\usage{
-system.file("extdata","example.vcf", package="GenomicTools.fileHandler")
-}
 \description{
 This file contains some example variants to represent a typical vcf file that can be used
 to try the corresponding functions.

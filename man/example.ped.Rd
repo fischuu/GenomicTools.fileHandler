@@ -4,16 +4,14 @@
 \name{example.ped}
 \alias{example.ped}
 \title{Example Variant data in ped/map-Format}
-\usage{
-system.file("extdata","example.ped", package="GenomicTools.fileHandler")
-}
 \description{
 This file contains some example variants to represent a typical ped/map file pair that can be used
 to try the corresponding functions.
 }
 \details{
 The file is locate din the /extdata folder of the package and is accessible after installation via
-\code{system.file("extdata","example.ped", package="GenomicTools.fileHandler")} and
+\code{system.file("extdata","example.ped", package="GenomicTools.fileHandler")}
+
 \code{system.file("extdata","example.ped", package="GenomicTools.fileHandler")}
 }
 \author{

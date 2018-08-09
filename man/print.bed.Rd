@@ -10,6 +10,8 @@
 \arguments{
 \item{x}{Object of class \code{bed}.}
 
+\item{n}{Number of lines to print}
+
 \item{...}{Additional parameters}
 }
 \description{

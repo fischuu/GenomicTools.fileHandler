@@ -4,9 +4,6 @@
 \name{example.gtf}
 \alias{example.gtf}
 \title{Example Gene Annotation in gtf-Format}
-\usage{
-system.file("extdata","example.gtf", package="GenomicTools.fileHandler")
-}
 \description{
 This file contains some example gene annotations to represent a typical gtf file that can be used
 to try the corresponding functions.

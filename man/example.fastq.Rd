@@ -4,9 +4,6 @@
 \name{example.fastq}
 \alias{example.fastq}
 \title{Example Sequencing Reads in fastq-Format}
-\usage{
-system.file("extdata","example.fastq", package="GenomicTools.fileHandler")
-}
 \description{
 This file contains some example reads to represent a typical fastq file that can be used
 to try the corresponding functions.

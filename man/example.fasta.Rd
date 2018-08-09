@@ -4,9 +4,6 @@
 \name{example.fasta}
 \alias{example.fasta}
 \title{Example Sequencing Reads in fasta-Format}
-\usage{
-system.file("extdata","example.fasta", package="GenomicTools.fileHandler")
-}
 \description{
 This file contains some example reads to represent a typical fasta file that can be used
 to try the corresponding functions.

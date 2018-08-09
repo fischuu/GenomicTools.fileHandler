@@ -4,9 +4,6 @@
 \name{example.gff}
 \alias{example.gff}
 \title{Example Gene Annotation in gff-Format}
-\usage{
-system.file("extdata","example.gff", package="GenomicTools.fileHandler")
-}
 \description{
 This file contains some example gene annotations to represent a typical gff file that can be used
 to try the corresponding functions.

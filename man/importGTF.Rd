@@ -65,7 +65,11 @@ type is set automatically to numeric. Additional numerical feature names can be 
    
  # Import the example gtf file  
    importGTF(fpath, level="transcript", features=c("gene_id","FPKM"))
+   
+ \dontrun{
+ # For the current you need to have zcat installed (should be standard on a Linux system)
    importGTF(fpath.gz, level="transcript", features=c("gene_id","FPKM"))
+   }
  
 }
 \author{

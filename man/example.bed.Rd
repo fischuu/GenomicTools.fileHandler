@@ -5,9 +5,6 @@
 \alias{example.bed}
 \title{Example Gene Annotation in Bed-Format}
 \format{A file with three column Chr, Start and End.}
-\usage{
-system.file("extdata","example.bed", package="GenomicTools.fileHandler")
-}
 \description{
 This file contains some example lines to represent a typical bed file that can be used
 to try the corresponding functions.

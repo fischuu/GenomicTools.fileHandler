@@ -21,6 +21,7 @@ Import a VCF function
 This function imports a VCF file.
 
 The example file was downloaded from here:
+
 ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/release/2010_07/exon/snps/
 }
 \examples{

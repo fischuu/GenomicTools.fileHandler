@@ -4,9 +4,6 @@
 \name{example2.gtf.gz}
 \alias{example2.gtf.gz}
 \title{Example Gene Annotation in zipped gtf-Format}
-\usage{
-system.file("extdata","example2.gtf.gz", package="GenomicTools.fileHandler")
-}
 \description{
 This file contains some example gene annotations to represent a typical zipped gtf file that can be used
 to try the corresponding functions.
