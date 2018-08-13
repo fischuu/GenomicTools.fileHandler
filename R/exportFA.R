@@ -19,7 +19,7 @@
 #' Gene=c("LOC1", "LOC2", "LOC3"))
 #'
 #' myFasta <- getFastaFromBed(novelBed, species="Bos taurus", 
-#' +                          fastaFolder="/home/daniel/fasta/")
+#'                            fastaFolder="/home/daniel/fasta/")
 #'
 #' exportFA(myFasta, file="myFasta.fa")
 #' }
