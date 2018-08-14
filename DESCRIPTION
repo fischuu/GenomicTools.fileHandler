@@ -2,7 +2,7 @@ Package: GenomicTools.fileHandler
 Type: Package
 Title: File Handlers for Genomic Data Analysis
 Version: 0.1
-Date: 2018-08-09
+Date: 2018-08-14
 Author: Daniel Fischer
 Maintainer: Daniel Fischer <daniel.fischer@luke.fi>
 Description: A collection of I/O tools for handling the most commonly used genomic datafiles, like fasta/-q, bed, gff, gtf, ped/map and vcf.
