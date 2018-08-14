@@ -175,9 +175,10 @@ importGFF.internal <- function(file, skip="auto", nrow=-1, use.data.table=TRUE, 
     
   } else {
     for(frun in 1:length(features)){
-      tmpFeature <- sapply(V9, function(x) x[grepl(features[frun],x)])
+      tmpFeature <- sapply(sapply(V9, function(x) x[grepl(features[frun],x)]),"[",1)
       tmpFeature <- gsub(" ","",tmpFeature)
       tmpFeature <- gsub(";","",tmpFeature)
+      tmpFeature <- gsub("=","",tmpFeature)
       tmpFeature <- gsub(eval(features[frun]),"",tmpFeature)
       tmpFeature <- gsub('\"',"",tmpFeature)
       if(sum(is.element(features[frun],num.features))>0) tmpFeature <- as.numeric(tmpFeature)
