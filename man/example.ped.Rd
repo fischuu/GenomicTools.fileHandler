@@ -11,8 +11,6 @@ to try the corresponding functions.
 \details{
 The file is locate din the /extdata folder of the package and is accessible after installation via
 \code{system.file("extdata","example.ped", package="GenomicTools.fileHandler")}
-
-\code{system.file("extdata","example.ped", package="GenomicTools.fileHandler")}
 }
 \author{
 Daniel Fischer
