@@ -17,9 +17,11 @@
 #'  # Import the example fasta file  
 #'    fastaFile <- importFA(file=fpath)
 #'    newFasta <- fastaFile[1:5]
-#' \dontrun{
-#'   exportFA(newFasta)
-#' }
+#'    
+#' myfile <- file.path(tempdir(), "myLocs.fa")
+#'    
+#'   exportFA(newFasta, file=myfile)
+#'
 #' 
 #' @export
 

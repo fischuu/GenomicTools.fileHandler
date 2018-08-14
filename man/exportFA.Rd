@@ -26,9 +26,11 @@ This function exports a fasta object to a standard fasta file. If no file name i
  # Import the example fasta file  
    fastaFile <- importFA(file=fpath)
    newFasta <- fastaFile[1:5]
-\dontrun{
-  exportFA(newFasta)
-}
+   
+myfile <- file.path(tempdir(), "myLocs.fa")
+   
+  exportFA(newFasta, file=myfile)
+
 
 }
 \author{
