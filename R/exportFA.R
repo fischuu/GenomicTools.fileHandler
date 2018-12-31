@@ -12,17 +12,16 @@
 #' @author Daniel Fischer
 #' 
 #' @examples 
-#' \dontrun{
-#' novelBed <- data.frame(Chr=c(11,18,3),
-#' Start=c(72554673, 62550696, 18148822),
-#' End=c(72555273, 62551296, 18149422),
-#' Gene=c("LOC1", "LOC2", "LOC3"))
+#'  # Define here the location on HDD for the example file
+#'    fpath <- system.file("extdata","example.fasta", package="GenomicTools.fileHandler")
+#'  # Import the example fasta file  
+#'    fastaFile <- importFA(file=fpath)
+#'    newFasta <- fastaFile[1:5]
+#'    
+#' myfile <- file.path(tempdir(), "myLocs.fa")
+#'    
+#'   exportFA(newFasta, file=myfile)
 #'
-#' myFasta <- getFastaFromBed(novelBed, species="Bos taurus", 
-#' +                          fastaFolder="/home/daniel/fasta/")
-#'
-#' exportFA(myFasta, file="myFasta.fa")
-#' }
 #' 
 #' @export
 

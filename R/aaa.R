@@ -7,3 +7,10 @@ mixVectors <- function(x,y){
 substrRight <- function(x, n){
   substr(x, nchar(x)-n+1, nchar(x))
 }
+
+ascii <- c("!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", ":", ";", "<", "=", ">", "?", "@", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K")
+Q <- 0:42
+
+ascii_base33 <- data.frame(Q=Q,
+                           P=10^(-Q/10),
+                           ascii=ascii)

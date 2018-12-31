@@ -43,6 +43,14 @@ Import a GFF file
 \details{
 This function imports a standard gff file.
 }
+\examples{
+
+ # Define here the location on HDD for the example file
+   fpath <- system.file("extdata","example.gff", package="GenomicTools.fileHandler")
+ # Import the example gff file  
+   importGFF(fpath)
+   
+}
 \author{
 Daniel Fischer
 }

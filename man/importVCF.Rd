@@ -18,7 +18,19 @@ A vcf object
 Import a VCF function
 }
 \details{
-This function imports a VCF file
+This function imports a VCF file.
+
+The example file was downloaded from here:
+
+ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/release/2010_07/exon/snps/
+}
+\examples{
+
+ # Define here the location on HDD for the example file
+   fpath <- system.file("extdata","example.vcf", package="GenomicTools.fileHandler")
+ # Import the example vcf file  
+   importVCF(fpath)
+
 }
 \author{
 Daniel Fischer

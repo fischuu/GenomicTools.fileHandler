@@ -5,6 +5,9 @@
 #' This function is to a large extend taken from \code{snpStat::read.pedmap}, but here is internally the \code{data.table::fread} function used
 #' that resulted in much faster file processing. 
 #' 
+#' To import the data, the ped file can be provided to the \code{file} option and the map file to the \code{snps} option. If no option is given to
+#' \code{snps} and the \code{file} option is provided without any file extension, then the ped/map extension are automaticall added
+#' 
 #' @param file ped filename
 #' @param n Number of samples to read
 #' @param snps map filename
@@ -19,13 +22,47 @@
 #' 
 #' @author Daniel Fischer
 #' 
+#' @examples
+#' 
+#'  # Define here the location on HDD for the example file
+#'    pedPath <- system.file("extdata","example.ped", package="GenomicTools.fileHandler")
+#'    mapPath <- system.file("extdata","example.map", package="GenomicTools.fileHandler")
+#'  # Import the example ped/map files  
+#'    importPED(file=pedPath, snps=mapPath)
+#' 
+#' 
 #' @export
 
 
 
-importPED <-   function (file, n, snps, which, split = "\t| +", sep = ".", na.strings = "0", 
+importPED <-   function (file, n, snps=NULL, which, split = "\t| +", sep = ".", na.strings = "0", 
                          lex.order = FALSE, verbose=TRUE) {
 
+  # Easy file definition
+    baseNameOnly <- TRUE
+    if(substrRight(file,3)=="ped") baseNameOnly <- FALSE
+    if(is.null(snps)){
+      if(baseNameOnly){
+        snps <- paste(file,"map",sep=".")
+        file <- paste(file,"ped",sep=".")
+        if(verbose){
+          cat("Assume the following files:\n")
+          if(file.exists(file)){
+            cat("file:",file,"\n")
+          } else {
+            stop("Please check the input for 'file'-option, cannot find",file)
+          }
+          if(file.exists(snps)){
+            cat("file:",snps,"\n")
+          } else {
+            stop("Please check the input for 'snps'-option, cannot find",snps)
+          }
+        }
+      } else {
+        stop("No SNP file provided. Please provide either the basename of the ped/map file to file or ped to file and map to snps.")
+      }
+    }
+  
   # This file is taken to a large extend from the snpStat package
   # The difference, however, is the use of fread that speeds up the function substantially.
 
@@ -173,6 +210,6 @@ importPED <-   function (file, n, snps, which, split = "\t| +", sep = ".", na.st
     rownames(result) <- fam$member
     meta <- list(monomorph=sum(mono), multiallelic=sum(mallelic), missing=sum(a1m), pedFile=file, mapFile=snps)
     result <- list(genotypes = result, fam = fam, map = map, meta=meta)
-    class(result) <- "PedMap"
+    class(result) <- "pedMap"
     result
   }

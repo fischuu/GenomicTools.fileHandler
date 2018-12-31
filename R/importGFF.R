@@ -21,6 +21,13 @@
 #' 
 #' @author Daniel Fischer
 #' 
+#' @examples 
+#' 
+#'  # Define here the location on HDD for the example file
+#'    fpath <- system.file("extdata","example.gff", package="GenomicTools.fileHandler")
+#'  # Import the example gff file  
+#'    importGFF(fpath)
+#'    
 #' @export
 
 
@@ -151,7 +158,7 @@ importGFF.internal <- function(file, skip="auto", nrow=-1, use.data.table=TRUE, 
   # Remove the non-informative aprts from that vectors
   if(is.null(features)){
     # Now get the required information from V9
-    gene_id <- sapply(sapply(V9, function(x) x[grepl("ID",x)]),"[",1)
+    gene_id <- sapply(sapply(V9, function(x) x[grepl("^ID",x)]),"[",1)
     gene_name <- sapply(V9, function(x) x[grepl("Name",x)])
     gene_biotype <- sapply(V9, function(x) x[grepl("gene_biotype",x)])
     gene_id <- gsub("ID=","",gene_id)
@@ -168,9 +175,10 @@ importGFF.internal <- function(file, skip="auto", nrow=-1, use.data.table=TRUE, 
     
   } else {
     for(frun in 1:length(features)){
-      tmpFeature <- sapply(V9, function(x) x[grepl(features[frun],x)])
+      tmpFeature <- sapply(sapply(V9, function(x) x[grepl(features[frun],x)]),"[",1)
       tmpFeature <- gsub(" ","",tmpFeature)
       tmpFeature <- gsub(";","",tmpFeature)
+      tmpFeature <- gsub("=","",tmpFeature)
       tmpFeature <- gsub(eval(features[frun]),"",tmpFeature)
       tmpFeature <- gsub('\"',"",tmpFeature)
       if(sum(is.element(features[frun],num.features))>0) tmpFeature <- as.numeric(tmpFeature)

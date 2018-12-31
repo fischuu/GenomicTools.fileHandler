@@ -23,6 +23,14 @@ This functions imports the output from FeatureCounts
 FeatureCounts produces two files, the txt that contain the expression values and then the summary that containts
 all the information about the mapping statistics. This function imports both and stores them in a corresponding list.
 }
+\examples{
+
+ # Define here the location on HDD for the example file
+   fpath <- system.file("extdata","featureCountsExample.txt", package="GenomicTools.fileHandler")
+ # Import the example featureCounts file  
+   fcFile <- importFeatureCounts(file=fpath)
+ 
+}
 \author{
 Daniel Fischer
 }

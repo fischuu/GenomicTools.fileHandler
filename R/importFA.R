@@ -6,6 +6,10 @@
 #' meaning in the odd lines are the sequence names given, starting with > and in the even rows are the 
 #' corresponding sequences.
 #' 
+#' The example file was downloaded from here and was then further truncated respective transformed to fasta format:
+#' 
+#' ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/data/HG00096/sequence_read/
+#' 
 #' @param file Specifies the filename/path
 #' 
 #' @return An object of class \code{fa} containing the sequences. The names correspond to the sequence names given in the fasta file.
@@ -15,9 +19,11 @@
 #' @seealso print.fa, summary.fa
 #' 
 #' @examples 
-#' \dontrun{
-#'   importFA(file="myFasta.fa")
-#' }
+#' 
+#'  # Define here the location on HDD for the example file
+#'    fpath <- system.file("extdata","example.fasta", package="GenomicTools.fileHandler")
+#'  # Import the example fasta file  
+#'    fastaFile <- importFA(file=fpath)
 #'  
 #' @export
 

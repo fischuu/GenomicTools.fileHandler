@@ -34,6 +34,21 @@
 #' 
 #' @author Daniel Fischer
 #' 
+#' @examples 
+#' 
+#'  # Define here the location on HDD for the example file
+#'    fpath <- system.file("extdata","example.gtf", package="GenomicTools.fileHandler")
+#'  # Same file, but this time as gzipped version
+#'    fpath.gz <- system.file("extdata","example2.gtf.gz", package="GenomicTools.fileHandler")
+#'    
+#'  # Import the example gtf file  
+#'    importGTF(fpath, level="transcript", features=c("gene_id","FPKM"))
+#'    
+#'  \dontrun{
+#'  # For the current you need to have zcat installed (should be standard on a Linux system)
+#'    importGTF(fpath.gz, level="transcript", features=c("gene_id","FPKM"))
+#'    }
+#'  
 #' @export
 
 importGTF <- function(file, skip="auto", nrow=-1, use.data.table=TRUE, level="gene", features=NULL, num.features=c("FPKM", "TPM"), print.features=FALSE, merge.feature=NULL, merge.all=TRUE, class.names=NULL, verbose=TRUE){
@@ -91,7 +106,7 @@ importGTF.internal <- function(file, skip="auto", nrow=-1, use.data.table=TRUE, 
   
   if(skip=="auto"){
     if(last(strsplit(gtf,"\\.")[[1]])=="gz"){
-      cat("dfg")
+    # Say something here!
     } else {
       con  <- file(gtf, open = "r")
       search <- TRUE
@@ -115,15 +130,15 @@ importGTF.internal <- function(file, skip="auto", nrow=-1, use.data.table=TRUE, 
   
   if(use.data.table){
     if(last(strsplit(gtf,"\\.")[[1]])=="gz"){
-      cuffLoaded <- fread(input = paste('zcat',gtf), sep ="\t", skip=skip, colClasses = c("character",
-                                                                                          "character",
-                                                                                          "character",
-                                                                                          "integer",
-                                                                                          "integer",
-                                                                                          "character",
-                                                                                          "character",
-                                                                                          "character",
-                                                                                          "character"))
+      cuffLoaded <- fread(input = paste('zcat',gtf), sep ="\t", colClasses = c("character",
+                                                                               "character",
+                                                                               "character",
+                                                                               "integer",
+                                                                               "integer",
+                                                                               "character",
+                                                                               "character",
+                                                                               "character",
+                                                                               "character"))
     } else {
       cuffLoaded <- fread(input = gtf, sep="\t", skip=skip, colClasses = c("character",
                                                                            "character",
