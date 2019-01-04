@@ -4,9 +4,13 @@
 #' 
 #' This function imports a VCF file.
 #' 
+#' In case the logicl flag 'phased' is set to TRUE then the genotypes are expected to be in the format 0|0, otherwise they are expected
+#' to be like 0/1 .
+#' 
 #' The example file was downloaded from here:
 #' 
 #' ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/release/2010_07/exon/snps/
+#' 
 #' 
 #' @param file The file name
 #' @param na.seq The missing value definition
@@ -82,16 +86,26 @@ importVCF <- function(file, na.seq="./."){
   
 # Extract the genotype information
   genotypes <- vcfBody[, .SD, .SDcols = -c(1:9)]
-# Change them to raw format look alike, it is NOT raw!!
-  for(genoRun in colnames(genotypes)){
-   genotypes[get(genoRun) == na.seq, eval(genoRun) := "00"]
-   genotypes[get(genoRun) == "0/0", eval(genoRun) := "01"]
-   genotypes[get(genoRun) == "0/1", eval(genoRun) := "02"]
-   genotypes[get(genoRun) == "1/1", eval(genoRun) := "03"]
-  }
+
+# Remove the additional FORMAT fields (THIS INFORMATION COULD LATER ALSO STILL BE EXTRACTED!!!)
+# This is quick and dirty, fix it!!!!
+  genotypes <- as.data.table(data.frame(lapply(genotypes, function(x) {gsub("\\:.*","",x)}), stringsAsFactors=FALSE))
   
-   genotypesRN <- colnames(genotypes)
-   genotypes <- genotypes[, data.table(t(.SD), keep.rownames=TRUE)]  # Takes long, IMPROVE IT!!!
+# Change them to raw format look alike, it is NOT raw!!
+  genotypes[genotypes==na.seq] <- "00"
+    
+  genotypes[genotypes=="0|0"] <- "01"
+  genotypes[genotypes=="0|1"] <- "02"
+  genotypes[genotypes=="1|0"] <- "02"
+  genotypes[genotypes=="1|1"] <- "03"
+
+  genotypes[genotypes=="0/0"] <- "01"
+  genotypes[genotypes=="0/1"] <- "02"
+  genotypes[genotypes=="1/1"] <- "03"
+  
+  
+  genotypesRN <- colnames(genotypes)
+  genotypes <- genotypes[, data.table(t(.SD), keep.rownames=TRUE)]  # Takes long, IMPROVE IT!!!
 
   genotypes[,rn:=NULL]
   setnames(genotypes, map[[2]])
