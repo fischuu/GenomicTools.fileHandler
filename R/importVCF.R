@@ -88,8 +88,11 @@ importVCF <- function(file, na.seq="./."){
   genotypes <- vcfBody[, .SD, .SDcols = -c(1:9)]
 
 # Remove the additional FORMAT fields (THIS INFORMATION COULD LATER ALSO STILL BE EXTRACTED!!!)
-# This is quick and dirty, fix it!!!!
-  genotypes <- as.data.table(data.frame(lapply(genotypes, function(x) {gsub("\\:.*","",x)}), stringsAsFactors=FALSE))
+  cols = names(genotypes) 
+  genotypes[ , (cols) := lapply(.SD, function(x) {gsub("\\:.*","",x)}), .SDcols = cols]
+
+# Earlier quick and dirty way:  
+#  genotypes <- as.data.table(data.frame(lapply(genotypes, function(x) {gsub("\\:.*","",x)}), stringsAsFactors=FALSE))
   
 # Change them to raw format look alike, it is NOT raw!!
   genotypes[genotypes==na.seq] <- "00"
