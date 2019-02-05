@@ -20,6 +20,9 @@ Import a VCF function
 \details{
 This function imports a VCF file.
 
+In case the logicl flag 'phased' is set to TRUE then the genotypes are expected to be in the format 0|0, otherwise they are expected
+to be like 0/1 .
+
 The example file was downloaded from here:
 
 ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/pilot_data/release/2010_07/exon/snps/

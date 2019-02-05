@@ -98,6 +98,26 @@ summary.featureCounts <- function(object, ...){
   object$summary
 }
 
+#' Summary of a gtf Object
+#' 
+#' Summarizes a \code{gtf} object.
+#' 
+#' The summary function displays an informative summary of a gtf object
+#' 
+#' @name summary.gtf
+#' @docType methods
+#' @param object Object of class \code{gtf}.
+#' @param ... Additional parameters
+#' @author Daniel Fischer
+#' @keywords methods summary
+#' @export
+#' 
+
+summary.gtf <- function(object, ...){
+  cat("GTF Summary\n")
+  cat("---------------\n")
+  object$summary
+}
 
 summary.PedMap <- function(object, ...){
   
