@@ -3,7 +3,7 @@
 \docType{methods}
 \name{print.fq}
 \alias{print.fq}
-\title{Print a fa Object}
+\title{Print a fq Object}
 \usage{
 \method{print}{fq}(x, n = 2, seq.out = 50, print.qual = TRUE, ...)
 }
@@ -19,7 +19,7 @@
 \item{...}{Additional parameters}
 }
 \description{
-Prints a \code{fa} object.
+Prints a \code{fq} object.
 }
 \details{
 The print function displays a fa object

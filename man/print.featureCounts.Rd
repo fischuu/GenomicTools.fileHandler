@@ -3,10 +3,9 @@
 \docType{methods}
 \name{print.featureCounts}
 \alias{print.featureCounts}
-\alias{print.fa}
 \title{Print a featureCounts Object}
 \usage{
-\method{print}{fa}(x, n = 2, seq.out = 50, ...)
+\method{print}{featureCounts}(x, ...)
 }
 \arguments{
 \item{x}{Object of class \code{featureCounts}.}

@@ -7,6 +7,10 @@ Stable releases have even version numbers:
 
 -----------------------------------------------------
 
+Version 0.1.4 (Stable Version):
+* Improvements of summary functions
+* Minor bugfixes
+
 Version 0.1.2 (Stable Version):
 * Initial commit with most import I/O functions added
 Planned next features
