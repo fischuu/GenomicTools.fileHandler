@@ -16,9 +16,8 @@ An object of class \code{fa} containing the sequences. The names correspond to t
 This function imports a standard fasta file
 }
 \details{
-This function imports a standard fasta file. It assumes that label and sequence lines are alternating,
-meaning in the odd lines are the sequence names given, starting with > and in the even rows are the 
-corresponding sequences.
+This function imports a standard fasta file. Hereby, it does not matter if the identifier and sequence are alternating or not,
+as the rows starting with '>' are used as identifer.
 
 The example file was downloaded from here and was then further truncated respective transformed to fasta format:
 

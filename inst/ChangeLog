@@ -6,6 +6,8 @@ Version with odd last numbers are development versions.
 Stable releases have even version numbers:
 
 -----------------------------------------------------
+Version 0.1.5.x:
+1: importFA does not rely on alternating rows anymore
 
 Version 0.1.4 (Stable Version):
 * Improvements of summary functions

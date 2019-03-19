@@ -2,9 +2,8 @@
 #' 
 #' This function imports a standard fasta file
 #' 
-#' This function imports a standard fasta file. It assumes that label and sequence lines are alternating,
-#' meaning in the odd lines are the sequence names given, starting with > and in the even rows are the 
-#' corresponding sequences.
+#' This function imports a standard fasta file. Hereby, it does not matter if the identifier and sequence are alternating or not,
+#' as the rows starting with '>' are used as identifer.
 #' 
 #' The example file was downloaded from here and was then further truncated respective transformed to fasta format:
 #' 
@@ -31,11 +30,26 @@
   importFA <- function(file){
     res <- readLines(file)
   # Check if the Fasta file is alternating, one line label, the next line sequence
-    sumAlternating <- sum(grepl(">",res)==c(TRUE,FALSE))
-    if(sumAlternating!=length(res)) stop("Your Fasta file is malformed. Please ensure that name rows start with > and that names and sequence
-                                         rows are alternating.")
-    seq <- res[seq(2,length(res),2)]
-    names(seq) <- res[seq(1,length(res)-1,2)]
+    greplRes <- grepl(">",res)
+    sumAlternating <- sum(greplRes==c(TRUE,FALSE))
+    if(sumAlternating!=length(res)){
+      idRows <- which(greplRes)
+      numberOfSequences <- length(idRows)
+
+      # NOTE: Quick and dirty for now with a loop, fix that to be faster later!!!
+      seq <- rep("", numberOfSequences)
+      for(i in 1:(numberOfSequences-1)){
+        seq[i] <- paste(res[(idRows[i]+1):(idRows[i+1]-1)], collapse="")
+      }
+      
+      seq[numberOfSequences] <- paste(res[(idRows[i]+1):(length(res))], collapse="")
+      names(seq) <- res[idRows]
+      
+      } else {
+    # Sequences are alternating, hence we can use this to import the files
+      seq <- res[seq(2,length(res),2)]
+      names(seq) <- res[seq(1,length(res)-1,2)]
+    }
     class(seq) <- "fa"
     seq
 } 
