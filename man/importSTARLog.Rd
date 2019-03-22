@@ -4,10 +4,14 @@
 \alias{importSTARLog}
 \title{importSTARLog}
 \usage{
-importSTARLog(file)
+importSTARLog(dir, recursive = TRUE, verbose = TRUE)
 }
 \arguments{
-\item{file}{The file name}
+\item{dir}{The directory name}
+
+\item{recursive}{Logical, check for sub-directories}
+
+\item{verbose}{Logical, talkactive function feedback}
 }
 \value{
 a data frame

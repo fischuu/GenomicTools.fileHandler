@@ -8,6 +8,7 @@ Stable releases have even version numbers:
 -----------------------------------------------------
 Version 0.1.5.x:
 1: importFA does not rely on alternating rows anymore
+2: importSTARLog imports now more statistics and is able to import recursively several log files
 
 Version 0.1.4 (Stable Version):
 * Improvements of summary functions

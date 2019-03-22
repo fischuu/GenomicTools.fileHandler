@@ -14,3 +14,5 @@ Q <- 0:42
 ascii_base33 <- data.frame(Q=Q,
                            P=10^(-Q/10),
                            ascii=ascii)
+
+trim <- function (x) gsub("^\\s+|\\s+$", "", x)
