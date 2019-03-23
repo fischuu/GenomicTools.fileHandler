@@ -189,7 +189,7 @@ importSTARLog <- function(dir, recursive = TRUE, verbose = TRUE){
   output <- list(Log=output.Log,
                  finalLog=output.finalLog)
 
-  class(output) <- "STARlog"
+  class(output) <- "STARLog"
   output
 }
 
