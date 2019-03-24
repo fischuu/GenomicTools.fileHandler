@@ -18,5 +18,12 @@ summary.STARLog <- function(object, ...){
   cat("---------------\n")
   STARVersion <- unique(object$Log$starVersion)
   ifelse(length(STARVersion)==1, STARVersionPassed <- "PASSED!", STARVersionPassed <- "WARNING!")
-  cat(STARVersionPassed," Used STAR Version        :", STARVersion,"\n")    
-}
+  cat("Used STAR Version        :", STARVersion,"-",STARVersionPassed,"\n")    
+
+  totalReads <- as.numeric(as.matrix(object$finalLog$basicStats[2,-1]))
+  cat("Total reads              :", prettyNum(mean(totalReads), big.mark=","),"(",prettyNum(sd(totalReads), big.mark=","),")","\n")    
+  
+  uniqueReads <- as.numeric(gsub("%","",as.matrix(object$finalLog$uniqueReads[13,-1])))
+  cat("Unique reads             :", prettyNum(mean(uniqueReads), big.mark=","),"(",prettyNum(sd(uniqueReads),big.mark=","),")","\n")    
+  
+  }

@@ -1,4 +1,4 @@
-#' plot.totalReads
+#' plotTotalReads
 #' 
 #' Plot the total reads
 #' 
@@ -14,7 +14,7 @@
 #' 
 #' @export
 
-plot.totalReads <- function(STARLog){
+plotTotalReads <- function(STARLog){
   options(scipen=999)
   if(class(STARLog)=="list"){
     STARitems <- length(STARLog)
