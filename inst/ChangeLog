@@ -12,6 +12,7 @@ Version 0.1.5.x:
 3: plotTotalReads function added
 4: summary.STARLog function added
 5: plotUniquelyReads function added and also added to the summary function
+6: importSTARLog handles now STAR2.7.2b log files (at the moment ONLY final.log)
 
 Version 0.1.4 (Stable Version):
 * Improvements of summary functions
