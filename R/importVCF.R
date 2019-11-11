@@ -95,16 +95,16 @@ importVCF <- function(file, na.seq="./."){
 #  genotypes <- as.data.table(data.frame(lapply(genotypes, function(x) {gsub("\\:.*","",x)}), stringsAsFactors=FALSE))
   
 # Change them to raw format look alike, it is NOT raw!!
-  genotypes[genotypes==na.seq] <- "00"
+  genotypes[genotypes==na.seq] <- "03"
     
-  genotypes[genotypes=="0|0"] <- "01"
-  genotypes[genotypes=="0|1"] <- "02"
-  genotypes[genotypes=="1|0"] <- "02"
-  genotypes[genotypes=="1|1"] <- "03"
+  genotypes[genotypes=="0|0"] <- "00"
+  genotypes[genotypes=="0|1"] <- "01"
+  genotypes[genotypes=="1|0"] <- "01"
+  genotypes[genotypes=="1|1"] <- "02"
 
-  genotypes[genotypes=="0/0"] <- "01"
-  genotypes[genotypes=="0/1"] <- "02"
-  genotypes[genotypes=="1/1"] <- "03"
+  genotypes[genotypes=="0/0"] <- "00"
+  genotypes[genotypes=="0/1"] <- "01"
+  genotypes[genotypes=="1/1"] <- "02"
   
   
   genotypesRN <- colnames(genotypes)
