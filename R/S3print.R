@@ -123,6 +123,28 @@ print.featureCounts <- function(x, ...){
   print(x$summary)
 }
 
+#' Print a gtf Object
+#' 
+#' Prints a \code{gtf} object.
+#' 
+#' The print function displays a bed object
+#' 
+#' @name print.gtf
+#' @docType methods
+#' @param x Object of class \code{gtf}.
+#' @param n Number of lines to print
+#' @param ... Additional parameters
+#' @author Daniel Fischer
+#' @keywords methods print
+#' @export
+
+print.gtf <- function(x, n=6, ...){
+  n <- min(n, nrow(x))
+  out <- as.data.frame(x)
+  print(out[1:n,])
+  if(n<nrow(x)) message("...\n",nrow(x)-n," rows not displayed.")
+}
+
 #' Print a pedMap Object
 #' 
 #' Prints an \code{pedMap} object.

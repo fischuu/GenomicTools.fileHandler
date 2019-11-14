@@ -4,12 +4,17 @@
 \alias{importSTARLog}
 \title{importSTARLog}
 \usage{
-importSTARLog(dir, recursive = TRUE, verbose = TRUE)
+importSTARLog(dir, recursive = TRUE, log = FALSE, finalLog = TRUE,
+  verbose = TRUE)
 }
 \arguments{
 \item{dir}{The directory name}
 
 \item{recursive}{Logical, check for sub-directories}
+
+\item{log}{boolean, import also log file}
+
+\item{finalLog}{boolean, import also final_log file}
 
 \item{verbose}{Logical, talkactive function feedback}
 }
