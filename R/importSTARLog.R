@@ -118,7 +118,7 @@ importSTARLog <- function(dir, recursive = TRUE, log=FALSE, finalLog=TRUE, verbo
   
       timeS <- tmp.in[1:4]
       tmp.split <- strsplit(timeS,"\\|\t")
-      ts.1 <- sapply(sapply(tmp.split,"[",1),R.oo:::trim)
+      ts.1 <- sapply(sapply(tmp.split,"[",1),trim)
       ts.2 <- sapply(tmp.split,"[",2)
       if(i == 1){
         timeStats <- data.frame(Option=ts.1, ts.2)      

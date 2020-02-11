@@ -11,6 +11,8 @@
 #' @author Daniel Fischer
 #' @keywords methods summary
 #' @export
+#' @importFrom stats sd
+
 
 summary.STARLog <- function(object, ...){
   

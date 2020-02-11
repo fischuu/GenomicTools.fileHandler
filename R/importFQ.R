@@ -20,6 +20,10 @@
 #'    fastqFile <- importFQ(file=fpath)
 #'  
 #' @export
+#' 
+#' @importFrom graphics boxplot
+
+
 
 # This function reads in a fasta file and prepares the vector from it
   importFQ <- function(file){
