@@ -65,7 +65,7 @@ importGTF <- function(file, skip="auto", nrow=-1, use.data.table=TRUE, level="ge
     }
    
    gtfFiles <- list.files(file)
-   gtfFiles <- gtfFiles[grepl(".gtf",gtfFiles)]
+   gtfFiles <- gtfFiles[grep(".gtf",gtfFiles)]
    gtfNames <- gsub(".gtf","",gtfFiles)
    gtfNames <- gsub(".gz","",gtfNames)
    if(verbose) cat("Start to import", length(gtfFiles),"files:\n", paste(gtfFiles , collapse=" \n"),"\n")
@@ -101,7 +101,7 @@ importGTF <- function(file, skip="auto", nrow=-1, use.data.table=TRUE, level="ge
   out
 }
 
-importGTF.internal <- function(file, skip="auto", nrow=-1, use.data.table=TRUE, level="gene", features=NULL, num.features=num.features, print.features=FALSE, merge.feature=NULL, verbose=FALSE){
+importGTF.internal <- function(file, skip="auto", nrow=-1, use.data.table=TRUE, level="gene", features=NULL, num.features=num.features, print.features=FALSE, merge.feature=NULL, verbose){
   gtf <- file
   
   if(skip=="auto"){
@@ -178,9 +178,9 @@ importGTF.internal <- function(file, skip="auto", nrow=-1, use.data.table=TRUE, 
   # Remove the non-informative aprts from that vectors
   if(is.null(features)){
     # Now get the required information from V9
-    gene_id <- sapply(V9, function(x) x[grepl("gene_id",x)])
-    gene_name <- sapply(V9, function(x) x[grepl("gene_name",x)])
-    gene_biotype <- sapply(V9, function(x) x[grepl("gene_biotype",x)])
+    gene_id <- sapply(V9, function(x) x[grep("^gene_id",x)])
+    gene_name <- sapply(V9, function(x) x[grep("^gene_name",x)])
+    gene_biotype <- sapply(V9, function(x) x[grep("^gene_biotype",x)])
     gene_id <- gsub("gene_id ","",gene_id)
     gene_name <- gsub("gene_name ","",gene_name)
     gene_biotype <- gsub("gene_biotype ","",gene_biotype)
@@ -198,7 +198,7 @@ importGTF.internal <- function(file, skip="auto", nrow=-1, use.data.table=TRUE, 
     
   } else {
     for(frun in 1:length(features)){
-      tmpFeature <- sapply(V9, function(x) x[grepl(features[frun],x)])
+      tmpFeature <- sapply(V9, function(x) x[grep(paste("^",features[frun],sep=""),x)])
       tmpFeature <- gsub(" ","",tmpFeature)
       tmpFeature <- gsub(";","",tmpFeature)
       tmpFeature <- gsub(eval(features[frun]),"",tmpFeature)

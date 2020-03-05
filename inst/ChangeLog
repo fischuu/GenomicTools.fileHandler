@@ -15,6 +15,7 @@ Version 0.1.5.x:
 6: importSTARLog handles now STAR2.7.2b log files (at the moment ONLY final.log)
 7: crucial bugfix in variant coding for importVCF
 8: print.gtf function added
+9: importGTF: Bugfix in case the features are substring from each other
 
 Version 0.1.4 (Stable Version):
 * Improvements of summary functions
