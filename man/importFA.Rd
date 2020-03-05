@@ -4,10 +4,12 @@
 \alias{importFA}
 \title{Importing a Fasta File.}
 \usage{
-importFA(file)
+importFA(file, verbose = FALSE)
 }
 \arguments{
 \item{file}{Specifies the filename/path}
+
+\item{verbose}{Logical, verbose function output}
 }
 \value{
 An object of class \code{fa} containing the sequences. The names correspond to the sequence names given in the fasta file.

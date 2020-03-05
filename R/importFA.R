@@ -10,6 +10,7 @@
 #' ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/data/HG00096/sequence_read/
 #' 
 #' @param file Specifies the filename/path
+#' @param verbose Logical, verbose function output
 #' 
 #' @return An object of class \code{fa} containing the sequences. The names correspond to the sequence names given in the fasta file.
 #' 
@@ -27,11 +28,21 @@
 #' @export
 
 # This function reads in a fasta file and prepares the vector from it
-  importFA <- function(file){
+  importFA <- function(file, verbose=FALSE){
     res <- readLines(file)
+    if(verbose) cat("Number of read lines:", length(res),"\n")
+
   # Check if the Fasta file is alternating, one line label, the next line sequence
     greplRes <- grepl(">",res)
-    sumAlternating <- sum(greplRes==c(TRUE,FALSE))
+    if(verbose) cat("Number of header lines:", sum(greplRes),"\n")
+
+    if(length(greplRes)%%2!=0){
+      if(verbose) warning("The fasta input does not have an even linenumber. Is this intended?")
+      sumAlternating <- sum(greplRes[-length(greplRes)]==c(TRUE,FALSE)) 
+    } else {
+      sumAlternating <- sum(greplRes==c(TRUE,FALSE)) 
+    }
+
     if(sumAlternating!=length(res)){
       idRows <- which(greplRes)
       numberOfSequences <- length(idRows)

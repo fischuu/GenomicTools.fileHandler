@@ -16,6 +16,7 @@ Version 0.1.5.x:
 7: crucial bugfix in variant coding for importVCF
 8: print.gtf function added
 9: importGTF: Bugfix in case the features are substring from each other
+10: importFA: Minor comfort fix to make the function run with smoother output. Further, verbose option added
 
 Version 0.1.4 (Stable Version):
 * Improvements of summary functions
