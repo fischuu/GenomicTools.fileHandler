@@ -4,10 +4,20 @@
 \alias{importGTF}
 \title{Import a GTF File}
 \usage{
-importGTF(file, skip = "auto", nrow = -1, use.data.table = TRUE,
-  level = "gene", features = NULL, num.features = c("FPKM", "TPM"),
-  print.features = FALSE, merge.feature = NULL, merge.all = TRUE,
-  class.names = NULL, verbose = TRUE)
+importGTF(
+  file,
+  skip = "auto",
+  nrow = -1,
+  use.data.table = TRUE,
+  level = "gene",
+  features = NULL,
+  num.features = c("FPKM", "TPM"),
+  print.features = FALSE,
+  merge.feature = NULL,
+  merge.all = TRUE,
+  class.names = NULL,
+  verbose = TRUE
+)
 }
 \arguments{
 \item{file}{file or folder}

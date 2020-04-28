@@ -4,8 +4,17 @@
 \alias{importPED}
 \title{importPED}
 \usage{
-importPED(file, n, snps = NULL, which, split = "\\t| +", sep = ".",
-  na.strings = "0", lex.order = FALSE, verbose = TRUE)
+importPED(
+  file,
+  n,
+  snps = NULL,
+  which,
+  split = "\\t| +",
+  sep = ".",
+  na.strings = "0",
+  lex.order = FALSE,
+  verbose = TRUE
+)
 }
 \arguments{
 \item{file}{ped filename}
@@ -34,7 +43,7 @@ Import a PED/MAP file pair
 }
 \details{
 This function is to a large extend taken from \code{snpStat::read.pedmap}, but here is internally the \code{data.table::fread} function used
-that resulted in much faster file processing.
+that resulted in much faster file processing. 
 
 To import the data, the ped file can be provided to the \code{file} option and the map file to the \code{snps} option. If no option is given to
 \code{snps} and the \code{file} option is provided without any file extension, then the ped/map extension are automaticall added

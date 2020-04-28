@@ -104,6 +104,7 @@ importVCF <- function(file, na.seq="./."){
 
   genotypes[genotypes=="0/0"] <- "00"
   genotypes[genotypes=="0/1"] <- "01"
+  genotypes[genotypes=="1/0"] <- "01"
   genotypes[genotypes=="1/1"] <- "02"
   
   

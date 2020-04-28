@@ -4,8 +4,13 @@
 \alias{importSTARLog}
 \title{importSTARLog}
 \usage{
-importSTARLog(dir, recursive = TRUE, log = FALSE, finalLog = TRUE,
-  verbose = TRUE)
+importSTARLog(
+  dir,
+  recursive = TRUE,
+  log = FALSE,
+  finalLog = TRUE,
+  verbose = TRUE
+)
 }
 \arguments{
 \item{dir}{The directory name}

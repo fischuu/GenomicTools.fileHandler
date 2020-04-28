@@ -20,7 +20,7 @@ A list of available features
 Preread a gtf file and prints features of it for importing it.
 }
 \details{
-This function reads in a gtf file and prints its features for the import step.
+This function reads in a gtf file and prints its features for the import step. 
 
 By default this function only imports the first 1000 rows, in case all rows should be imported set \code{nrow=-1}.
 

@@ -4,8 +4,7 @@
 \alias{importXML}
 \title{importXML}
 \usage{
-importXML(folder, seqNames = NULL, which = NULL, idTH = 0.8,
-  verbose = TRUE)
+importXML(folder, seqNames = NULL, which = NULL, idTH = 0.8, verbose = TRUE)
 }
 \arguments{
 \item{folder}{Character, folder path}
