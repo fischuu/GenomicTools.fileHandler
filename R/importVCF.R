@@ -83,14 +83,23 @@ importVCF <- function(file, na.seq="./."){
     map[[2]][missingNames] <- newLabels[missingNames]  
   }
 
-  
+# Get the information field
+  info <- do.call(rbind,strsplit(vcfBody$INFO,";"))
+  colnames(info) <- sapply(strsplit(info[1,],"="),"[",1)
+  for(i in 1:ncol(info)){
+    info[,i] <- gsub(paste(colnames(info)[i],"=",sep=""), "", info[,i])
+  }
+  info <- apply(info,2,as.numeric)
+    
 # Extract the genotype information
   genotypes <- vcfBody[, .SD, .SDcols = -c(1:9)]
-
-# Remove the additional FORMAT fields (THIS INFORMATION COULD LATER ALSO STILL BE EXTRACTED!!!)
+  genotypesInfo <- vcfBody[, .SD, .SDcols = -c(1:9)]
+  
+# Remove the additional FORMAT fields
   cols = names(genotypes) 
   genotypes[ , (cols) := lapply(.SD, function(x) {gsub("\\:.*","",x)}), .SDcols = cols]
-
+  genotypesInfo[ , (cols) := lapply(.SD, function(x) {gsub(".*?:","",x)}), .SDcols = cols]
+  
 # Earlier quick and dirty way:  
 #  genotypes <- as.data.table(data.frame(lapply(genotypes, function(x) {gsub("\\:.*","",x)}), stringsAsFactors=FALSE))
   
@@ -116,7 +125,7 @@ importVCF <- function(file, na.seq="./."){
   rownames(genotypes) <- genotypesRN
   
 # Then import the body
-  out <- list(header=header, vcfBody, map=map, genotypes=genotypes)
+  out <- list(header=header, vcfBody, map=map, genotypes=genotypes, info=info, genotypesInfo=genotypesInfo)
   class(out) <- "vcf"
   out
 }

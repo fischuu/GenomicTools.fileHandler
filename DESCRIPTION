@@ -1,7 +1,7 @@
 Package: GenomicTools.fileHandler
 Type: Package
 Title: File Handlers for Genomic Data Analysis
-Version: 0.1.5.11
+Version: 0.1.5.12
 Date: 2020-04-28
 Author: Daniel Fischer
 Maintainer: Daniel Fischer <daniel.fischer@luke.fi>

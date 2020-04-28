@@ -18,6 +18,7 @@ Version 0.1.5.x:
 9: importGTF: Bugfix in case the features are substring from each other
 10: importFA: Minor comfort fix to make the function run with smoother output. Further, verbose option added
 11: importVCF: Phased input accepted for "/" coding (it is transformed in non-phased notation)
+12: importVCF: Info fields are now printed as well
 
 Version 0.1.4 (Stable Version):
 * Improvements of summary functions

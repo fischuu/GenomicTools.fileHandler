@@ -222,7 +222,19 @@ print.vcf <- function(x, n=6, m=6, fullHeader=FALSE,...){
   }
   cat("...",length(x$header)-n,"rows omited \n\n")
   
+  # Print the map
   cat("First",n,"rows of $map:\n")  
   print(x$map[1:n,])
   cat("...",nrow(x$map)-n,"rows omited \n")
+  
+  # Print the Info
+  cat("First",n,"rows of $info:\n")  
+  print(x$info[1:n,])
+  cat("...",nrow(x$info)-n,"rows omited \n")
+  
+  # Print the genotypesInfo
+  cat("First",n,"rows of $genotypesInfo:\n")  
+  print(x$genotypesInfo[1:n,])
+  cat("...",nrow(x$genotypesInfo)-n,"rows omited \n")
+  
 } 
