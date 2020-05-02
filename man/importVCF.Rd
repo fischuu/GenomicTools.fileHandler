@@ -4,7 +4,7 @@
 \alias{importVCF}
 \title{importVCF}
 \usage{
-importVCF(file, na.seq = "./.", simplify = TRUE)
+importVCF(file, na.seq = "./.", simplify = TRUE, getInfo = FALSE)
 }
 \arguments{
 \item{file}{The file name}
@@ -12,6 +12,8 @@ importVCF(file, na.seq = "./.", simplify = TRUE)
 \item{na.seq}{The missing value definition}
 
 \item{simplify}{Logical}
+
+\item{getInfo}{Logical}
 }
 \value{
 A vcf object

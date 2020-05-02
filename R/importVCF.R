@@ -15,6 +15,7 @@
 #' @param file The file name
 #' @param na.seq The missing value definition
 #' @param simplify Logical
+#' @param getInfo Logical
 #' 
 #' @return A vcf object
 #' 
@@ -29,7 +30,7 @@
 #' 
 #' @export
 
-importVCF <- function(file, na.seq="./.", simplify=TRUE){
+importVCF <- function(file, na.seq="./.", simplify=TRUE, getInfo=FALSE){
 # Necessary variable declaration for Cran checks
   V3 <- NULL
   rn <- NULL
@@ -85,12 +86,16 @@ importVCF <- function(file, na.seq="./.", simplify=TRUE){
   }
 
 # Get the information field
-  info <- do.call(rbind,strsplit(vcfBody$INFO,";"))
-  colnames(info) <- sapply(strsplit(info[1,],"="),"[",1)
-  for(i in 1:ncol(info)){
-    info[,i] <- gsub(paste(colnames(info)[i],"=",sep=""), "", info[,i])
+  if(getInfo){
+    info <- do.call(rbind,strsplit(vcfBody$INFO,";"))
+    colnames(info) <- sapply(strsplit(info[1,],"="),"[",1)
+    for(i in 1:ncol(info)){
+      info[,i] <- gsub(paste(colnames(info)[i],"=",sep=""), "", info[,i])
+    }
+    info <- apply(info,2,as.numeric)
+  } else {
+    info <- NULL
   }
-  info <- apply(info,2,as.numeric)
     
 # Extract the genotype information
   genotypes <- vcfBody[, .SD, .SDcols = -c(1:9)]
