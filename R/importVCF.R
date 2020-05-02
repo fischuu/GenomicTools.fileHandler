@@ -5,7 +5,7 @@
 #' This function imports a VCF file.
 #' 
 #' In case the logicl flag 'phased' is set to TRUE then the genotypes are expected to be in the format 0|0, otherwise they are expected
-#' to be like 0/1 .
+#' to be like 0/1 . If the flag simplify is set genotypes like 0/2 or 1/2 will be set to 0,1,2 coding and multi-alternatives are ignored.
 #' 
 #' The example file was downloaded from here:
 #' 
@@ -14,6 +14,7 @@
 #' 
 #' @param file The file name
 #' @param na.seq The missing value definition
+#' @param simplify Logical
 #' 
 #' @return A vcf object
 #' 
@@ -28,7 +29,7 @@
 #' 
 #' @export
 
-importVCF <- function(file, na.seq="./."){
+importVCF <- function(file, na.seq="./.", simplify=TRUE){
 # Necessary variable declaration for Cran checks
   V3 <- NULL
   rn <- NULL
@@ -115,6 +116,12 @@ importVCF <- function(file, na.seq="./."){
   genotypes[genotypes=="0/1"] <- "01"
   genotypes[genotypes=="1/0"] <- "01"
   genotypes[genotypes=="1/1"] <- "02"
+  
+  if(simplify){
+    genotypes[genotypes=="0/2"] <- "01"
+    genotypes[genotypes=="1/2"] <- "02"
+    genotypes[genotypes=="2/2"] <- "02"
+  }
   
   
   genotypesRN <- colnames(genotypes)

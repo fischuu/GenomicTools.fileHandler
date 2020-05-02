@@ -4,12 +4,14 @@
 \alias{importVCF}
 \title{importVCF}
 \usage{
-importVCF(file, na.seq = "./.")
+importVCF(file, na.seq = "./.", simplify = TRUE)
 }
 \arguments{
 \item{file}{The file name}
 
 \item{na.seq}{The missing value definition}
+
+\item{simplify}{Logical}
 }
 \value{
 A vcf object
@@ -21,7 +23,7 @@ Import a VCF function
 This function imports a VCF file.
 
 In case the logicl flag 'phased' is set to TRUE then the genotypes are expected to be in the format 0|0, otherwise they are expected
-to be like 0/1 .
+to be like 0/1 . If the flag simplify is set genotypes like 0/2 or 1/2 will be set to 0,1,2 coding and multi-alternatives are ignored.
 
 The example file was downloaded from here:
 
