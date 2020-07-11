@@ -36,17 +36,23 @@ summary.bed <- function(object, ...){
 summary.fa <- function(object, ...){
   
   nCharObj <- nchar(object)
-  cat("Summary of fa object\n")
-  cat("--------------------\n")
-  cat("Sequences      :",length(object),"\n")
-  cat("Minimum length :",min(nCharObj),"\n")
-  cat("1st quartile   :",quantile(nCharObj, 0.25),"\n")
-  cat("Median length  :",median(nCharObj),"\n")
-  cat("Average length :",mean(nCharObj),"\n")
-  cat("3rd quartile   :",quantile(nCharObj, 0.75),"\n")
-  cat("Maximum length :",max(nCharObj),"\n")
-  invisible(object)
-  
+  out <- data.frame(c("Sequences      :",
+                      "Minimum length :",
+                      "1st quartile   :",
+                      "Median length  :",
+                      "Average length :",
+                      "3rd quartile   :",
+                      "Maximum length :"),
+                    c(length(object),
+                      min(nCharObj),
+                      quantile(nCharObj, 0.25),
+                      median(nCharObj),
+                      mean(nCharObj),
+                      quantile(nCharObj, 0.75),
+                      max(nCharObj))
+  )
+  colnames(out) <- out
+  print(out, row.names=FALSE)  
 } 
 
 #' Summary of a fq Object
