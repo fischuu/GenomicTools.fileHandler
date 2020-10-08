@@ -4,7 +4,13 @@
 \alias{importVCF}
 \title{importVCF}
 \usage{
-importVCF(file, na.seq = "./.", simplify = TRUE, getInfo = FALSE)
+importVCF(
+  file,
+  na.seq = "./.",
+  simplify = TRUE,
+  getInfo = FALSE,
+  formatFields = NULL
+)
 }
 \arguments{
 \item{file}{The file name}
@@ -14,6 +20,8 @@ importVCF(file, na.seq = "./.", simplify = TRUE, getInfo = FALSE)
 \item{simplify}{Logical}
 
 \item{getInfo}{Logical}
+
+\item{formatFields}{Vector with names}
 }
 \value{
 A vcf object
@@ -26,6 +34,9 @@ This function imports a VCF file.
 
 In case the logicl flag 'phased' is set to TRUE then the genotypes are expected to be in the format 0|0, otherwise they are expected
 to be like 0/1 . If the flag simplify is set genotypes like 0/2 or 1/2 will be set to 0,1,2 coding and multi-alternatives are ignored.
+
+ If you would like to extract in addition to the genotype information further any other data from th vcf file formatted in the
+ FORMAT field, you can specify their names in the \data{formatFields} option. Currently, it only accepts a single value.
 
 The example file was downloaded from here:
 
