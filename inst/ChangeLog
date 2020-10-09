@@ -22,6 +22,7 @@ Version 0.1.5.x:
 13: importVCF: Simplify parameter added
 14: summary.fz: This is now a data.frame
 15: importVCF: formatFields option added
+16: summary.fa: output corrected, print() removed
 
 Version 0.1.4 (Stable Version):
 * Improvements of summary functions

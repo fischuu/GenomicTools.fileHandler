@@ -51,8 +51,9 @@ summary.fa <- function(object, ...){
                       quantile(nCharObj, 0.75),
                       max(nCharObj))
   )
-  colnames(out) <- out
-  print(out, row.names=FALSE)  
+  colnames(out) <- NULL
+  rownames(out) <- NULL
+  out
 } 
 
 #' Summary of a fq Object
