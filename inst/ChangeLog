@@ -23,6 +23,8 @@ Version 0.1.5.x:
 14: summary.fz: This is now a data.frame
 15: importVCF: formatFields option added
 16: summary.fa: output corrected, print() removed
+17: summary.fq: output synchronized with summary.fa
+
 
 Version 0.1.4 (Stable Version):
 * Improvements of summary functions

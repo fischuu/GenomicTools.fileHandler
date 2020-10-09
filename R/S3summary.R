@@ -72,17 +72,25 @@ summary.fa <- function(object, ...){
 #' 
 summary.fq <- function(object, ...){
   
-  nCharObj <- nchar(object$seq)
-  cat("Summary of fq object\n")
-  cat("--------------------\n")
-  cat("Sequences      :",length(object$seq),"\n")
-  cat("Minimum length :",min(nCharObj),"\n")
-  cat("1st quartile   :",quantile(nCharObj, 0.25),"\n")
-  cat("Median length  :",median(nCharObj),"\n")
-  cat("Average length :",mean(nCharObj),"\n")
-  cat("3rd quartile   :",quantile(nCharObj, 0.75),"\n")
-  cat("Maximum length :",max(nCharObj),"\n")
-  invisible(object)
+  nCharObj <- nchar(object)
+  out <- data.frame(c("Sequences      :",
+                      "Minimum length :",
+                      "1st quartile   :",
+                      "Median length  :",
+                      "Average length :",
+                      "3rd quartile   :",
+                      "Maximum length :"),
+                    c(length(object),
+                      min(nCharObj),
+                      quantile(nCharObj, 0.25),
+                      median(nCharObj),
+                      mean(nCharObj),
+                      quantile(nCharObj, 0.75),
+                      max(nCharObj))
+  )
+  colnames(out) <- NULL
+  rownames(out) <- NULL
+  out
   
 } 
 
