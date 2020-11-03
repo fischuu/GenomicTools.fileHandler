@@ -8,7 +8,7 @@
 #' to be like 0/1 . If the flag simplify is set genotypes like 0/2 or 1/2 will be set to 0,1,2 coding and multi-alternatives are ignored.
 #' 
 #'  If you would like to extract in addition to the genotype information further any other data from th vcf file formatted in the
-#'  FORMAT field, you can specify their names in the \data{formatFields} option. Currently, it only accepts a single value.
+#'  FORMAT field, you can specify their names in the formatFields option. Currently, it only accepts a single value.
 #' 
 #' The example file was downloaded from here:
 #' 
