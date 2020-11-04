@@ -72,7 +72,7 @@ summary.fa <- function(object, ...){
 #' 
 summary.fq <- function(object, ...){
   
-  nCharObj <- nchar(object)
+  nCharObj <- nchar(object$seq)
   out <- data.frame(c("Sequences      :",
                       "Minimum length :",
                       "1st quartile   :",
