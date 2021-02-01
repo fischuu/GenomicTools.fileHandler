@@ -25,6 +25,7 @@ Version 0.1.5.x:
 16: summary.fa: output corrected, print() removed
 17: summary.fq: output synchronized with summary.fa
 18: summary.fa: added Total length
+19: summary.fq: added Total length
 
 
 Version 0.1.4 (Stable Version):
