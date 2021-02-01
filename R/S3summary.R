@@ -42,14 +42,16 @@ summary.fa <- function(object, ...){
                       "Median length  :",
                       "Average length :",
                       "3rd quartile   :",
-                      "Maximum length :"),
+                      "Maximum length :",
+                      "Total length   :"),
                     c(length(object),
                       min(nCharObj),
                       quantile(nCharObj, 0.25),
                       median(nCharObj),
                       mean(nCharObj),
                       quantile(nCharObj, 0.75),
-                      max(nCharObj))
+                      max(nCharObj),
+                      nCharObj)
   )
   colnames(out) <- NULL
   rownames(out) <- NULL
