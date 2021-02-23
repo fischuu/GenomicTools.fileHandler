@@ -51,7 +51,7 @@ summary.fa <- function(object, ...){
                       mean(nCharObj),
                       quantile(nCharObj, 0.75),
                       max(nCharObj),
-                      nCharObj)
+                      sum(nCharObj))
   )
   colnames(out) <- NULL
   rownames(out) <- NULL
