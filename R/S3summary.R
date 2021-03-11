@@ -95,7 +95,6 @@ summary.fq <- function(object, ...){
   colnames(out) <- NULL
   rownames(out) <- NULL
   out
-  
 } 
 
 #' Summary of a featureCounts Object
