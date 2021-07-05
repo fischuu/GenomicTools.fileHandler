@@ -27,7 +27,7 @@ Version 0.1.5.x:
 18: summary.fa: added Total length
 19: summary.fq: added Total length
 20: bugfix in summary.fa and fq (missing sum)
-
+21: importSTARlog path adjusted for log files
 
 Version 0.1.4 (Stable Version):
 * Improvements of summary functions

@@ -20,9 +20,9 @@ importSTARLog <- function(dir, recursive = TRUE, log=FALSE, finalLog=TRUE, verbo
 
 # Get the file names and paths  
   files <- list()
-  files$logFiles <- list.files(dir, recursive=recursive, full.names=TRUE, pattern="*_Log.out")
-  files$logFinalFiles <- list.files(dir, recursive=recursive, full.names=TRUE, pattern="*_Log.final.out")
-  files$logProgressFiles <- list.files(dir, recursive=recursive, full.names=TRUE, pattern="*_Log.progress.out")
+  files$logFiles <- list.files(dir, recursive=recursive, full.names=TRUE, pattern="*Log.out")
+  files$logFinalFiles <- list.files(dir, recursive=recursive, full.names=TRUE, pattern="*Log.final.out")
+  files$logProgressFiles <- list.files(dir, recursive=recursive, full.names=TRUE, pattern="*Log.progress.out")
     
 # Input checks, if input is complete
   files$n.logFiles <- length(files$logFiles)
@@ -34,7 +34,7 @@ importSTARLog <- function(dir, recursive = TRUE, log=FALSE, finalLog=TRUE, verbo
   }
   
 # Get the sample names
-  files$sampleID <- gsub("_Log.out","",basename(files$logFiles))
+  files$sampleID <- gsub("Log.out","",basename(files$logFiles))
   
 # Define the output vectors
   starVersion <- c()
