@@ -1,7 +1,7 @@
 Package: GenomicTools.fileHandler
 Type: Package
 Title: File Handlers for Genomic Data Analysis
-Version: 0.1.5.22
+Version: 0.1.5.23
 Date: 2022-01-23
 Author: Daniel Fischer
 Maintainer: Daniel Fischer <daniel.fischer@luke.fi>
@@ -13,4 +13,4 @@ VignetteBuilder: knitr
 License: GPL (>= 2)
 Encoding: UTF-8
 LazyLoad: yes
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
