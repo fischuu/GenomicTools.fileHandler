@@ -202,6 +202,7 @@ importGTF.internal <- function(file, skip="auto", nrow=-1, use.data.table=TRUE, 
       tmpFeature <- sapply(V9, function(x) x[grep(paste("^",features[frun],sep=""),x)])
       tmpFeature <- gsub(" ","",tmpFeature)
       tmpFeature <- gsub(";","",tmpFeature)
+      tmpFeature <- gsub("=","",tmpFeature)
       tmpFeature <- gsub(eval(features[frun]),"",tmpFeature)
       tmpFeature <- gsub('\"',"",tmpFeature)
       if(sum(is.element(features[frun],num.features))>0) tmpFeature <- as.numeric(tmpFeature)
