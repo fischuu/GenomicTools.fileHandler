@@ -164,10 +164,11 @@ importGTF.internal <- function(file, skip="auto", nrow=-1, use.data.table=TRUE, 
     stop("Currently the importGTF function supports only data tables.")
     cuffLoaded <- read.csv(file=gtf, sep="\t", header=FALSE, stringsAsFactors=FALSE, skip=skip, nrow=nrow)
   }
-  # Split the variable V9
+  # Split the variable V9 and remove leading whitespaces
   V9 <- cuffLoaded$V9
-  V9 <- strsplit(V9,"; ")
-  
+  V9 <- strsplit(V9,";")
+  V9 <- lapply(V9, trimws)
+    
   # Print the features, if requested
   if(print.features || verbose){
     cat("List of features in column 9:\n")
@@ -175,7 +176,7 @@ importGTF.internal <- function(file, skip="auto", nrow=-1, use.data.table=TRUE, 
     cat(paste(paste(sapply(strsplit(V9[[1]]," "),"[",1),"\n"), collapse=""))
   }
   
-  # Remove the non-informative aprts from that vectors
+  # Remove the non-informative parts from that vectors
   if(is.null(features)){
     # Now get the required information from V9
     gene_id <- sapply(V9, function(x) x[grep("^gene_id",x)])

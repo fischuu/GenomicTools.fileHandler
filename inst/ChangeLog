@@ -28,6 +28,7 @@ Version 0.1.5.x:
 19: summary.fq: added Total length
 20: bugfix in summary.fa and fq (missing sum)
 21: importSTARlog path adjusted for log files
+22: importGTF: V9 is now split in ";" and "; "
 
 Version 0.1.4 (Stable Version):
 * Improvements of summary functions

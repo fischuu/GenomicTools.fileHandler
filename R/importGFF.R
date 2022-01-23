@@ -147,6 +147,7 @@ importGFF.internal <- function(file, skip="auto", nrow=-1, use.data.table=TRUE, 
   # Split the variable V9
   V9 <- cuffLoaded$V9
   V9 <- strsplit(V9,";")
+  V9 <- lapply(V9, trimws)
   
   # Print the features, if requested
   if(print.features || verbose){
