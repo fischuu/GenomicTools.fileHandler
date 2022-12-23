@@ -53,7 +53,7 @@
         seq[i] <- paste(res[(idRows[i]+1):(idRows[i+1]-1)], collapse="")
       }
       
-      seq[numberOfSequences] <- paste(res[(idRows[i]+1):(length(res))], collapse="")
+      seq[numberOfSequences] <- paste(res[(idRows[i+1]+1):(length(res))], collapse="")
       names(seq) <- res[idRows]
       
       } else {
