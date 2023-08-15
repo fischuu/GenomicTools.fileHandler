@@ -31,6 +31,7 @@ Version 0.1.5.x:
 22: importGTF: V9 is now split in ";" and "; "
 23: exportGTF() function added
 24: importFA(): Critical bugfix
+25: importVCF(): Default changed from getInfo = FALSE to TRUE
 
 Version 0.1.4 (Stable Version):
 * Improvements of summary functions
