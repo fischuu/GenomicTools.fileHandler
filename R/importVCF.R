@@ -34,7 +34,7 @@
 #' 
 #' @export
 
-importVCF <- function(file, na.seq="./.", simplify=TRUE, getInfo=FALSE, formatFields=NULL){
+importVCF <- function(file, na.seq="./.", simplify=TRUE, getInfo=TRUE, formatFields=NULL){
 # Necessary variable declaration for Cran checks
   V3 <- NULL
   rn <- NULL
