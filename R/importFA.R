@@ -57,7 +57,7 @@ importFA <- function(file, toupper=TRUE, verbose=TRUE){
       if(verbose) message("It seems your fasta file has alternating header/sequence rows")
       alternatingRows <- TRUE
     } else {
-      if(verbose) message("It seems your fasta file does not alternating header/sequence rows")
+      if(verbose) message("It seems your fasta file does not have alternating header/sequence rows")
     }
   
   # Now populate the output vector with the sequences
