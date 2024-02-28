@@ -6,6 +6,13 @@ Version with odd last numbers are development versions.
 Stable releases have even version numbers:
 
 -----------------------------------------------------
+
+Version 0.2.*:
+2: toupper feature added to importFA function
+1: Bugfix in importFA that wrongly determined if fasta file has alternating header rows
+
+Version 0.2: Release version
+
 Version 0.1.5.x:
 1: importFA does not rely on alternating rows anymore
 2: importSTARLog imports now more statistics and is able to import recursively several log files
