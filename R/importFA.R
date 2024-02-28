@@ -10,6 +10,7 @@
 #' ftp://ftp.1000genomes.ebi.ac.uk/vol1/ftp/phase3/data/HG00096/sequence_read/
 #' 
 #' @param file Specifies the filename/path
+#' @param toupper Logical, input sequence will to rewriten to capital letters only
 #' @param verbose Logical, verbose function output
 #' 
 #' @return An object of class \code{fa} containing the sequences. The names correspond to the sequence names given in the fasta file.
@@ -28,25 +29,43 @@
 #' @export
 
 # This function reads in a fasta file and prepares the vector from it
-  importFA <- function(file, verbose=FALSE){
-    res <- readLines(file)
-    if(verbose) cat("Number of read lines:", length(res),"\n")
 
+importFA <- function(file, toupper=TRUE, verbose=TRUE){
+  # Read in the fasta file line by line
+    res <- readLines(file)
+  
+    if(toupper) res <- toupper(res)
+    
+  # Getting messages on the imported lines
+    if(verbose) message("Number of read lines: ", length(res),"\n")
+  
   # Check if the Fasta file is alternating, one line label, the next line sequence
     greplRes <- grepl(">",res)
-    if(verbose) cat("Number of header lines:", sum(greplRes),"\n")
-
-    if(length(greplRes)%%2!=0){
-      if(verbose) warning("The fasta input does not have an even linenumber. Is this intended?")
-      sumAlternating <- sum(greplRes[-length(greplRes)]==c(TRUE,FALSE)) 
-    } else {
-      sumAlternating <- sum(greplRes==c(TRUE,FALSE)) 
+    if(verbose) message("Number of header lines:", sum(greplRes),"\n")
+  
+  # Test if header and content rows are alternating
+    is_odd_sequence <- function(x) {
+      diffs <- diff(x)
+      all(diffs == 2)
     }
-
-    if(sumAlternating!=length(res)){
+    
+    alternatingRows <- FALSE
+    if( is_odd_sequence(which(greplRes))) {
+      if(verbose) message("It seems your fasta file does not alternating header/sequence rows")
+    } else {
+      if(verbose) message("It seems your fasta file has alternating header/sequence rows")
+      alternatingRows <- TRUE
+    }
+  
+  # Now populate the output vector with the sequences
+    if(alternatingRows){
+    # Sequences are alternating, hence we can use this to quickly import the files
+      seq <- res[seq(2,length(res),2)]
+      names(seq) <- res[seq(1,length(res)-1,2)]
+    } else {
       idRows <- which(greplRes)
       numberOfSequences <- length(idRows)
-
+      
       # NOTE: Quick and dirty for now with a loop, fix that to be faster later!!!
       seq <- rep("", numberOfSequences)
       for(i in 1:(numberOfSequences-1)){
@@ -55,12 +74,7 @@
       
       seq[numberOfSequences] <- paste(res[(idRows[i+1]+1):(length(res))], collapse="")
       names(seq) <- res[idRows]
-      
-      } else {
-    # Sequences are alternating, hence we can use this to import the files
-      seq <- res[seq(2,length(res),2)]
-      names(seq) <- res[seq(1,length(res)-1,2)]
     }
-    class(seq) <- "fa"
-    seq
-} 
+  class(seq) <- "fa"
+  seq
+}
