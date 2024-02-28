@@ -30,11 +30,14 @@
 
 # This function reads in a fasta file and prepares the vector from it
 
-importFA <- function(file, toupper=FALSE, verbose=TRUE){
+importFA <- function(file, toupper=TRUE, verbose=TRUE){
   # Read in the fasta file line by line
     res <- readLines(file)
   
-    if(toupper) res <- toupper(res)
+    if(toupper){
+      res <- toupper(res)
+      if(verbose) message("Input nucleotides were capitalised")
+    } 
     
   # Getting messages on the imported lines
     if(verbose) message("Number of read lines: ", length(res),"\n")
@@ -51,10 +54,10 @@ importFA <- function(file, toupper=FALSE, verbose=TRUE){
     
     alternatingRows <- FALSE
     if( is_odd_sequence(which(greplRes))) {
-      if(verbose) message("It seems your fasta file does not alternating header/sequence rows")
-    } else {
       if(verbose) message("It seems your fasta file has alternating header/sequence rows")
       alternatingRows <- TRUE
+    } else {
+      if(verbose) message("It seems your fasta file does not alternating header/sequence rows")
     }
   
   # Now populate the output vector with the sequences
