@@ -30,7 +30,7 @@
 
 # This function reads in a fasta file and prepares the vector from it
 
-importFA <- function(file, toupper=TRUE, verbose=TRUE){
+importFA <- function(file, toupper=FALSE, verbose=TRUE){
   # Read in the fasta file line by line
     res <- readLines(file)
   
