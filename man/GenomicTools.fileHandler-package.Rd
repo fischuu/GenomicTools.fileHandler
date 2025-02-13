@@ -7,7 +7,7 @@
 GenomicTools.fileHandler is a loose collection of I/O Functions Needed in Genomic Data Analysis}
 \description{
 \tabular{ll}{ Package: \tab GenomicTools.fileHandler\cr Type: \tab Package\cr Version: \tab
-0.2.4\cr Date: \tab 2025-02-13\cr License: \tab GPL\cr LazyLoad: \tab yes\cr
+0.1.5.23\cr Date: \tab 2022-01-23\cr License: \tab GPL\cr LazyLoad: \tab yes\cr
 }
 }
 \author{

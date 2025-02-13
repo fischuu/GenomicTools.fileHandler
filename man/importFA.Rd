@@ -4,10 +4,12 @@
 \alias{importFA}
 \title{Importing a Fasta File.}
 \usage{
-importFA(file, verbose = FALSE)
+importFA(file, toupper = TRUE, verbose = TRUE)
 }
 \arguments{
 \item{file}{Specifies the filename/path}
+
+\item{toupper}{Logical, input sequence will to rewriten to capital letters only}
 
 \item{verbose}{Logical, verbose function output}
 }

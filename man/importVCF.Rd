@@ -8,7 +8,7 @@ importVCF(
   file,
   na.seq = "./.",
   simplify = TRUE,
-  getInfo = FALSE,
+  getInfo = TRUE,
   formatFields = NULL
 )
 }
