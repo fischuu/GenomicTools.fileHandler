@@ -71,8 +71,12 @@ importFA <- function(file, toupper=TRUE, verbose=TRUE){
       
       # NOTE: Quick and dirty for now with a loop, fix that to be faster later!!!
       seq <- rep("", numberOfSequences)
-      for(i in 1:(numberOfSequences-1)){
-        seq[i] <- paste(res[(idRows[i]+1):(idRows[i+1]-1)], collapse="")
+      if(numberOfSequences>1){
+        for(i in 1:(numberOfSequences-1)){
+          seq[i] <- paste(res[(idRows[i]+1):(idRows[i+1]-1)], collapse="")
+        }
+      } else {
+        seq[1] <- paste(res[-1],collapse="")
       }
       
       seq[numberOfSequences] <- paste(res[(idRows[i+1]+1):(length(res))], collapse="")

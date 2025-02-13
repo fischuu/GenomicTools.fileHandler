@@ -8,8 +8,11 @@ Stable releases have even version numbers:
 -----------------------------------------------------
 
 Version 0.2.*:
+4: Added the exportVCF() function
+3: Bug in importFA() in case there is only one sequence in the fasta file fixed
 2: toupper feature added to importFA function
 1: Bugfix in importFA that wrongly determined if fasta file has alternating header rows
+
 
 Version 0.2: Release version
 
