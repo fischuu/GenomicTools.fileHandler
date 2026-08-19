@@ -16,3 +16,5 @@ ascii_base33 <- data.frame(Q=Q,
                            ascii=ascii)
 
 trim <- function (x) gsub("^\\s+|\\s+$", "", x)
+
+utils::globalVariables(c("..i"))

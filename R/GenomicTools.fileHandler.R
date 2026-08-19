@@ -11,7 +11,7 @@
 #' 
 #' Maintainer: Daniel Fischer <daniel.fischer@luke.fi>
 #'
-#' @import data.table
+#' @importFrom data.table := .SD data.table fread last setcolorder setkeyv setnames transpose tstrsplit
 #' @importFrom utils head read.csv read.table sessionInfo write.table
 #' @importFrom snpStats switch.alleles
 #' @importFrom stats median quantile

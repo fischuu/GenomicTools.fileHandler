@@ -2,6 +2,7 @@
 % Please edit documentation in R/GenomicTools.fileHandler.R
 \docType{package}
 \name{GenomicTools.fileHandler-package}
+\alias{GenomicTools.fileHandler}
 \alias{GenomicTools.fileHandler-package}
 \title{R Package To Handle Files From Genomic Data
 GenomicTools.fileHandler is a loose collection of I/O Functions Needed in Genomic Data Analysis}

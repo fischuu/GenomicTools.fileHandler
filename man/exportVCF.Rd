@@ -21,14 +21,16 @@ This function exports a vcf object into a standard vcf file.
 This function exports a vcf object to a standard vcf file. If no file name is given, the variable name will be used instead.
 }
 \examples{
+\dontrun{
  # Define here the location on HDD for the example file
    fpath <- system.file("extdata","example.vcf", package="GenomicTools.fileHandler")
  # Import the example fasta file  
- #  vcfFile <- importVCF(file=fpath)
+   vcfFile <- importVCF(file=fpath)
    
- # myfile <- file.path(tempdir(), "myLocs.vcf")
+   myfile <- file.path(tempdir(), "myLocs.vcf")
    
-  exportVCF(newVCF, file=myfile)
+   exportVCF(vcfFile, file=myfile)
+}
 
 
 }
